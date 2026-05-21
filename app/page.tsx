@@ -9,11 +9,12 @@ export default function Home() {
     fr: {
       title: "Olivier & Isabelle",
       subtitle: "25 Ans D’amour",
+
       quote:
         "Les années passent, mais la façon dont nous nous regardons n’a jamais changé.",
 
       family:
-        "Notre plus belle réussite dans la vie est l’amour et la magnifique famille que nous avons construite avec Auriane, Leïla et Nathanaël.",
+        "Notre plus belle réussite dans la vie est l’amour et la magnifique famille que nous avons construite avec Auriane Clochard, Leïla Clochard et Nathanaël Clochard.",
 
       welcomeTitle: "Bienvenue sur notre espace partagé !",
 
@@ -34,36 +35,46 @@ Profitez bien de la fête, on vous aime !
 Isabelle et Olivier
       `,
 
+      timings: "Horaires De L’événement",
+
+      menu: "Menu",
+
       parking: "Parking Gratuit Disponible",
+
       parkingText:
-        "Des places de parking privées et gratuites sont disponibles pour tous les invités.",
+        "Des places de parking gratuites sont disponibles pour tous les invités près du lieu de célébration.",
 
       route: "Lieu & Itinéraire",
+
       routeText:
         "Cliquez ci-dessous pour suivre l’itinéraire vers le lieu de célébration.",
 
       routeButton: "Suivre L’itinéraire",
 
       guest: "Messages Des Invités",
+
       guestPlaceholder:
         "Écrivez un joli message rempli d’amour...",
 
       upload: "Partager Vos Souvenirs",
+
       uploadText:
         "Ajoutez vos photos préférées de cette magnifique célébration.",
 
       thanks:
-        "Merci de célébrer cet amour avec nous. Votre présence rend cette journée encore plus belle."
+        "Merci de célébrer cet amour avec nous. Votre présence rend cette journée encore plus belle.",
     },
 
     en: {
       title: "Olivier & Isabelle",
+
       subtitle: "25 Years Of Love",
+
       quote:
         "Years passed, but the way we look at each other never changed.",
 
       family:
-        "Our greatest blessing in life is the love and beautiful family we built together with Auriane, Leïla and Nathanaël.",
+        "Our greatest blessing in life is the love and beautiful family we built together with Auriane Clochard, Leïla Clochard and Nathanaël Clochard.",
 
       welcomeTitle: "Welcome to our shared space!",
 
@@ -84,59 +95,79 @@ Enjoy the celebration, we love you!
 Isabelle & Olivier
       `,
 
+      timings: "Event Timings",
+
+      menu: "Menu",
+
       parking: "Free Parking Available",
+
       parkingText:
-        "Private free parking spaces are available for all guests.",
+        "Free parking spaces are available for all guests near the celebration venue.",
 
       route: "Venue & Route",
+
       routeText:
         "Click below to navigate directly to the celebration venue.",
 
       routeButton: "Track Route",
 
       guest: "Guest Messages",
+
       guestPlaceholder:
         "Write a sweet message filled with love...",
 
       upload: "Share Your Memories",
+
       uploadText:
         "Upload your favorite photos from this beautiful celebration.",
 
       thanks:
-        "Thank you for celebrating this love with us. Your presence makes this day even more beautiful."
+        "Thank you for celebrating this love with us. Your presence makes this day even more beautiful.",
     },
   };
 
   const t = text[lang as "fr" | "en"];
 
   return (
-    <main className="min-h-screen bg-[#241717] text-[#fff4ef] overflow-hidden relative">
+    <main className="min-h-screen bg-gradient-to-b from-[#241717] via-[#2d1b1b] to-[#120d14] text-[#fff4ef] overflow-hidden relative">
 
-      {/* GLITTERS */}
+      {/* GLITTER + HEARTS + LEAFS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(35)].map((_, i) => (
+
+        {[...Array(40)].map((_, i) => (
           <div
             key={i}
             className="absolute text-pink-200 animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              fontSize: `${10 + Math.random() * 18}px`,
-              opacity: 0.4,
+              fontSize: `${12 + Math.random() * 20}px`,
+              opacity: 0.25,
             }}
           >
             ♥
           </div>
         ))}
+
+        <div className="absolute top-20 left-10 text-5xl opacity-10 animate-bounce">
+          🍃
+        </div>
+
+        <div className="absolute bottom-20 right-20 text-5xl opacity-10 animate-pulse">
+          🍂
+        </div>
+
       </div>
 
       {/* HEADER */}
-      <div className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10">
+      <div className="relative z-10 flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10">
+
         <h1 className="text-3xl md:text-5xl font-serif">
           {t.title}
         </h1>
 
         <div className="flex gap-3">
+
           <button
             onClick={() => setLang("en")}
             className="bg-[#f6df75] text-black px-5 py-2 rounded-full font-bold"
@@ -150,11 +181,13 @@ Isabelle & Olivier
           >
             FR
           </button>
+
         </div>
       </div>
 
       {/* HERO */}
-      <section className="text-center py-20 px-6">
+      <section className="relative z-10 text-center py-20 px-6">
+
         <h2 className="text-6xl md:text-8xl font-serif text-[#ffdce9]">
           {t.subtitle}
         </h2>
@@ -162,49 +195,54 @@ Isabelle & Olivier
         <p className="italic text-2xl md:text-4xl mt-10 max-w-5xl mx-auto">
           “{t.quote}”
         </p>
+
       </section>
 
-     {/* 3 PHOTOS */}
-<section className="flex flex-col gap-8 justify-center items-center px-6 py-10">
+      {/* PHOTOS */}
+      <section className="relative z-10 flex flex-col gap-8 justify-center items-center px-6 py-10">
 
-  {/* TOP 2 PHOTOS */}
-  <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
 
-    <img
-      src="/photo1.jpeg"
-      alt=""
-      className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
-    />
+          <img
+            src="/photo1.jpeg"
+            alt=""
+            className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
+          />
 
-    <img
-      src="/photo3.jpeg"
-      alt=""
-      className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
-    />
+          <img
+            src="/photo4.jpeg"
+            alt=""
+            className="w-full md:w-[650px] h-[420px] object-cover object-center rounded-[40px] shadow-2xl border border-white/10"
+          />
 
-  </div>
+          <img
+            src="/photo3.jpeg"
+            alt=""
+            className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
+          />
 
-  {/* BIG HORIZONTAL PHOTO */}
-  <img
-    src="/photo4.jpeg"
-    alt=""
-    className="w-full max-w-[1100px] h-[500px] object-cover object-center rounded-[40px] shadow-2xl border border-white/10"
-  />
+        </div>
 
-</section>
+      </section>
 
-      {/* FAMILY QUOTE */}
-      <section className="px-6 py-20">
+      {/* FAMILY */}
+      <section className="relative z-10 px-6 py-20">
+
         <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10 text-center">
+
           <p className="italic text-3xl md:text-5xl leading-relaxed">
             {t.family}
           </p>
+
         </div>
+
       </section>
 
-      {/* WELCOME MESSAGE */}
-      <section className="px-6 pb-20">
+      {/* WELCOME */}
+      <section className="relative z-10 px-6 pb-20">
+
         <div className="max-w-5xl mx-auto bg-white/10 rounded-[40px] p-10">
+
           <h2 className="text-4xl md:text-5xl font-serif mb-10 text-[#ffdce9]">
             {t.welcomeTitle}
           </h2>
@@ -212,127 +250,102 @@ Isabelle & Olivier
           <p className="text-xl leading-loose whitespace-pre-line">
             {t.welcomeText}
           </p>
+
         </div>
+
       </section>
-           {/* EVENT TIMINGS */}
-      <section className="px-6 pb-20">
+
+      {/* EVENT TIMINGS */}
+      <section className="relative z-10 px-6 pb-20">
+
         <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
 
           <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
-            {lang === "fr" ? "Horaires De L’événement" : "Event Timings"}
+            {t.timings}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
-                {lang === "fr" ? "Accueil Des Invités" : "Guest Arrival"}
-              </h3>
-
-              <p className="text-2xl">
-                --:--
-              </p>
+              <h3 className="text-3xl mb-4">• --------</h3>
+              <p className="text-2xl">--:--</p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
-                {lang === "fr" ? "Dîner" : "Dinner"}
-              </h3>
-
-              <p className="text-2xl">
-                --:--
-              </p>
+              <h3 className="text-3xl mb-4">• --------</h3>
+              <p className="text-2xl">--:--</p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
-                {lang === "fr" ? "Célébration" : "Celebration"}
-              </h3>
-
-              <p className="text-2xl">
-                --:--
-              </p>
+              <h3 className="text-3xl mb-4">• --------</h3>
+              <p className="text-2xl">--:--</p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
-                {lang === "fr" ? "Dessert & Musique" : "Dessert & Music"}
-              </h3>
-
-              <p className="text-2xl">
-                --:--
-              </p>
+              <h3 className="text-3xl mb-4">• --------</h3>
+              <p className="text-2xl">--:--</p>
             </div>
 
           </div>
+
         </div>
+
       </section>
 
       {/* MENU */}
-      <section className="px-6 pb-20">
+      <section className="relative z-10 px-6 pb-20">
+
         <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
 
           <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
-            {lang === "fr" ? "Menu" : "Menu"}
+            {t.menu}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-5">
-                {lang === "fr" ? "Entrée" : "Starter"}
-              </h3>
-
-              <p className="text-xl leading-loose">
-                • ---------- <br />
-                • ---------- <br />
-                • ----------
+              <p className="text-2xl leading-loose">
+                • -------- <br />
+                • -------- <br />
+                • --------
               </p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-5">
-                {lang === "fr" ? "Plat Principal" : "Main Course"}
-              </h3>
-
-              <p className="text-xl leading-loose">
-                • ---------- <br />
-                • ---------- <br />
-                • ----------
+              <p className="text-2xl leading-loose">
+                • -------- <br />
+                • -------- <br />
+                • --------
               </p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-5">
-                {lang === "fr" ? "Desserts" : "Desserts"}
-              </h3>
-
-              <p className="text-xl leading-loose">
-                • ---------- <br />
-                • ---------- <br />
-                • ----------
+              <p className="text-2xl leading-loose">
+                • -------- <br />
+                • -------- <br />
+                • --------
               </p>
             </div>
 
             <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl font-serif mb-5">
-                {lang === "fr" ? "Boissons" : "Drinks"}
-              </h3>
-
-              <p className="text-xl leading-loose">
-                • ---------- <br />
-                • ---------- <br />
-                • ----------
+              <p className="text-2xl leading-loose">
+                • -------- <br />
+                • -------- <br />
+                • --------
               </p>
             </div>
 
           </div>
+
         </div>
+
       </section>
+
       {/* PARKING + ROUTE */}
-      <section className="grid md:grid-cols-2 gap-8 px-6 pb-20">
+      <section className="relative z-10 grid md:grid-cols-2 gap-8 px-6 pb-20">
 
         <div className="bg-white/10 rounded-[40px] p-10">
+
           <h2 className="text-4xl font-serif text-[#ffdce9] mb-6">
             {t.parking}
           </h2>
@@ -340,9 +353,11 @@ Isabelle & Olivier
           <p className="text-xl leading-relaxed">
             {t.parkingText}
           </p>
+
         </div>
 
         <div className="bg-white/10 rounded-[40px] p-10">
+
           <h2 className="text-4xl font-serif text-[#ffdce9] mb-6">
             {t.route}
           </h2>
@@ -358,11 +373,14 @@ Isabelle & Olivier
           >
             {t.routeButton}
           </a>
+
         </div>
+
       </section>
 
       {/* GUEST MESSAGES */}
-      <section className="px-6 pb-20">
+      <section className="relative z-10 px-6 pb-20">
+
         <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
 
           <h2 className="text-5xl font-serif text-center mb-10">
@@ -374,37 +392,46 @@ Isabelle & Olivier
             className="w-full h-[250px] rounded-[30px] bg-white/10 border border-white/20 p-8 text-2xl outline-none"
           />
 
-          <button className="mt-8 bg-[#f7cfe0] text-black px-12 py-5 rounded-full text-2xl font-bold">
-            Post Message
-          </button>
+          <div className="flex flex-col md:flex-row gap-6 mt-8">
+
+            <label className="bg-[#f7cfe0] text-black px-10 py-5 rounded-full text-2xl font-bold cursor-pointer text-center">
+
+              📸 {t.upload}
+
+              <input
+                type="file"
+                multiple
+                className="hidden"
+              />
+
+            </label>
+
+            <button
+              onClick={() =>
+                alert(
+                  lang === "fr"
+                    ? "Merci pour votre magnifique message 💕"
+                    : "Thank you for your beautiful message 💕"
+                )
+              }
+              className="bg-[#f7cfe0] text-black px-12 py-5 rounded-full text-2xl font-bold"
+            >
+              {lang === "fr" ? "Publier" : "Post Message"}
+            </button>
+
+          </div>
+
         </div>
-      </section>
 
-      {/* PHOTO UPLOAD */}
-      <section className="px-6 pb-20">
-        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10 text-center">
-
-          <h2 className="text-5xl font-serif mb-8 text-[#ffdce9]">
-            {t.upload}
-          </h2>
-
-          <p className="text-2xl mb-10">
-            {t.uploadText}
-          </p>
-
-          <input
-            type="file"
-            multiple
-            className="text-xl"
-          />
-        </div>
       </section>
 
       {/* THANK YOU */}
-      <section className="text-center px-6 pb-24">
+      <section className="relative z-10 text-center px-6 pb-24">
+
         <p className="italic text-3xl md:text-5xl max-w-5xl mx-auto leading-relaxed">
           {t.thanks}
         </p>
+
       </section>
 
     </main>
