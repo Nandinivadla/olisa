@@ -180,20 +180,29 @@ export default function Home() {
 
       </section>
 
-      {/* 2 PHOTOS */}
-      <section className="flex flex-col md:flex-row justify-center items-center gap-8 px-8">
+     {/* 2 PHOTOS */}
 
-        <img
-          src="/photo1.jpeg"
-          className="w-[340px] h-[460px] object-cover rounded-[35px] shadow-2xl"
-        />
+<section className="max-w-7xl mx-auto px-6 py-20">
 
-        <img
-          src="/photo4.jpeg"
-          className="w-[700px] h-[460px] object-cover rounded-[35px] shadow-2xl"
-        />
+  <div className="flex flex-col md:flex-row justify-center items-center gap-10">
 
-      </section>
+    {/* PHOTO 1 */}
+    <img
+      src="/photo1"
+      alt=""
+      className="w-[380px] h-[520px] object-cover rounded-[40px] shadow-2xl"
+    />
+
+    {/* PHOTO 3 */}
+    <img
+      src="/photo3"
+      alt=""
+      className="w-[520px] h-[520px] object-cover rounded-[40px] shadow-2xl"
+    />
+
+  </div>
+
+</section>
 
       {/* WELCOME */}
       <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10 text-center">
