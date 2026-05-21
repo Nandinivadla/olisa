@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [language, setLanguage] = useState("en");
-
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
@@ -25,61 +24,52 @@ export default function Home() {
   const text = {
     en: {
       title: "Olivier & Isabelle",
-      subtitle: "25 Years Of Love",
       quote:
-        "Years passed, but the way we look at each other never changed.",
+        "25 years later, your love still feels like home. Through every season of life, you chose each other again and again.",
+      children:
+        "The greatest love story is seeing the beautiful family you built together — Auriane Clochard, Leïla Clochard and Nathanaël Clochard.",
+      menu: "Celebration Menu",
       parking: "Parking Available",
-      parkingText:
-        "Private parking spaces are available for all guests.",
       route: "Ceremony Route",
-      routeBtn: "Track Route",
-      memories: "Share Your Memories",
-      upload:
-        "Upload your beautiful pictures and memories from this celebration.",
-      family: "Proud Parents Of",
-      rsvp: "RSVP",
-      guestbook: "Guest Messages",
-      frenchBtn: "FR",
-      englishBtn: "EN",
+      memories: "Wedding Memories",
+      upload: "Upload your beautiful memories here ✨",
+      messages: "Guest Messages",
+      messagePlaceholder: "Leave a beautiful message...",
+      send: "Send Message",
     },
 
     fr: {
       title: "Olivier & Isabelle",
-      subtitle: "25 Ans D’Amour",
       quote:
-        "Les années ont passé, mais la façon dont nous nous regardons n’a jamais changé.",
+        "25 ans plus tard, votre amour ressemble toujours à un foyer. À travers chaque saison de la vie, vous vous êtes choisis encore et encore.",
+      children:
+        "La plus belle histoire d’amour est la magnifique famille que vous avez construite ensemble — Auriane Clochard, Leïla Clochard et Nathanaël Clochard.",
+      menu: "Menu de la célébration",
       parking: "Parking Disponible",
-      parkingText:
-        "Des places de parking privées sont disponibles pour tous les invités.",
-      route: "Route De La Cérémonie",
-      routeBtn: "Voir La Route",
-      memories: "Partagez Vos Souvenirs",
-      upload:
-        "Téléchargez vos magnifiques photos et souvenirs.",
-      family: "Fiers Parents De",
-      rsvp: "RSVP",
-      guestbook: "Messages Des Invités",
-      frenchBtn: "FR",
-      englishBtn: "EN",
+      route: "Route de la cérémonie",
+      memories: "Souvenirs du Mariage",
+      upload: "Ajoutez ici vos magnifiques souvenirs ✨",
+      messages: "Messages des invités",
+      messagePlaceholder: "Laissez un beau message...",
+      send: "Envoyer",
     },
   };
 
-  const t = text[language as keyof typeof text];
+  const t = text[language as "en" | "fr"];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-gradient-to-b from-[#1b1515] via-[#3d2a27] to-[#0d0d17] text-[#fff4ee] relative">
+    <main className="min-h-screen bg-[#16121f] text-[#fff5ef] overflow-hidden relative">
 
-      {/* FLOATING HEARTS */}
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(25)].map((_, i) => (
+      {/* floating hearts */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute text-pink-200 opacity-20 animate-pulse"
+            className="absolute text-pink-300 animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              fontSize: `${12 + Math.random() * 30}px`,
+              fontSize: `${15 + Math.random() * 30}px`,
             }}
           >
             ♥
@@ -87,206 +77,164 @@ export default function Home() {
         ))}
       </div>
 
-      {/* HEADER */}
-
-      <header className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10 backdrop-blur-xl sticky top-0 z-50">
-
+      {/* top bar */}
+      <div className="flex justify-between items-center px-6 py-6 border-b border-white/10 relative z-10">
         <h1 className="text-3xl md:text-5xl font-serif">
           {t.title}
         </h1>
 
-        <div className="flex gap-3">
-          <button
-            onClick={() => setLanguage("en")}
-            className="bg-[#f8e27b] text-black px-5 py-2 rounded-full font-bold"
-          >
-            {t.englishBtn}
-          </button>
+        <button
+          onClick={() =>
+            setLanguage(language === "en" ? "fr" : "en")
+          }
+          className="bg-[#f5df77] text-black px-5 py-3 rounded-full font-bold"
+        >
+          {language === "en" ? "FR" : "EN"}
+        </button>
+      </div>
 
-          <button
-            onClick={() => setLanguage("fr")}
-            className="bg-[#f8e27b] text-black px-5 py-2 rounded-full font-bold"
-          >
-            {t.frenchBtn}
-          </button>
+      {/* slideshow */}
+      <section className="py-16 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+
+            <div>
+              <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
+                {t.quote}
+              </h2>
+
+              <p className="text-2xl italic text-pink-200 leading-relaxed">
+                {t.children}
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <img
+                src={images[currentImage]}
+                className="w-[320px] h-[480px] object-cover rounded-[40px] shadow-2xl transition-all duration-700"
+              />
+            </div>
+
+          </div>
         </div>
-      </header>
+      </section>
 
-      {/* HERO */}
+      {/* menu section */}
+      <section className="py-20 px-6 relative z-10">
 
-      <section className="text-center py-20 px-6">
-
-        <h2 className="text-5xl md:text-7xl font-serif mb-8 text-[#ffe4d8]">
-          {t.subtitle}
+        <h2 className="text-center text-5xl font-serif mb-16 text-pink-200">
+          {t.menu}
         </h2>
 
-        <p className="text-2xl italic max-w-4xl mx-auto text-[#ffeede]">
-          “{t.quote}”
-        </p>
-      </section>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
-      {/* AUTO IMAGE CAROUSEL */}
-
-      <section className="flex justify-center items-center mb-24 px-4">
-
-        <div className="w-full max-w-[900px] overflow-hidden rounded-[40px] shadow-2xl border border-white/20">
-
-          <img
-            src={images[currentImage]}
-            alt=""
-            className="w-full h-[350px] md:h-[650px] object-cover duration-700 transition-all"
-          />
-
-        </div>
-      </section>
-
-      {/* FAMILY */}
-
-      <section className="px-6 md:px-12 mb-24">
-
-        <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-10 md:p-16 text-center">
-
-          <h2 className="text-4xl md:text-6xl font-serif mb-10 text-[#ffd9ef]">
-            {t.family}
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8 text-2xl md:text-3xl">
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              Auriane Clochard
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              Leïla Clochard
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              Nathanaël Clochard
-            </div>
-
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-8">
+            <h3 className="text-3xl font-serif mb-6">🥂 Drinks</h3>
+            <p>• Champagne</p>
+            <p>• Wine</p>
+            <p>• Cocktails</p>
           </div>
-        </div>
-      </section>
 
-      {/* PARKING + ROUTE */}
-
-      <section className="grid md:grid-cols-2 gap-8 px-6 md:px-12 mb-24">
-
-        <div className="bg-white/10 rounded-[40px] p-10 backdrop-blur-xl">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[#ffd9ef]">
-            {t.parking}
-          </h2>
-
-          <p className="text-xl leading-relaxed">
-            {t.parkingText}
-          </p>
-        </div>
-
-        <div className="bg-white/10 rounded-[40px] p-10 backdrop-blur-xl">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[#ffd9ef]">
-            {t.route}
-          </h2>
-
-          <a
-            href="https://maps.google.com"
-            target="_blank"
-            className="inline-block mt-8 bg-[#9cf0d4] text-black px-8 py-4 rounded-full text-xl font-bold"
-          >
-            {t.routeBtn}
-          </a>
-        </div>
-      </section>
-
-      {/* RSVP */}
-
-      <section className="px-6 md:px-12 mb-24">
-
-        <div className="bg-white/10 rounded-[40px] p-10 md:p-16 backdrop-blur-xl">
-
-          <h2 className="text-5xl font-serif mb-10 text-center">
-            {t.rsvp}
-          </h2>
-
-          <div className="grid gap-6">
-
-            <input
-              type="text"
-              placeholder="Name"
-              className="bg-white/10 border border-white/20 rounded-2xl p-5 text-xl outline-none"
-            />
-
-            <input
-              type="email"
-              placeholder="Email"
-              className="bg-white/10 border border-white/20 rounded-2xl p-5 text-xl outline-none"
-            />
-
-            <textarea
-              placeholder="Message"
-              rows={5}
-              className="bg-white/10 border border-white/20 rounded-2xl p-5 text-xl outline-none"
-            />
-
-            <button className="bg-[#f8e27b] text-black py-5 rounded-full text-2xl font-bold">
-              Send RSVP
-            </button>
-
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-8">
+            <h3 className="text-3xl font-serif mb-6">🍽 Dinner</h3>
+            <p>• Starter</p>
+            <p>• Main Course</p>
+            <p>• Special Dish</p>
           </div>
-        </div>
-      </section>
 
-      {/* GUESTBOOK */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-8">
+            <h3 className="text-3xl font-serif mb-6">🍰 Desserts</h3>
+            <p>• Cake</p>
+            <p>• Pastries</p>
+            <p>• Fruits</p>
+          </div>
 
-      <section className="px-6 md:px-12 mb-24">
-
-        <div className="bg-white/10 rounded-[40px] p-10 md:p-16 backdrop-blur-xl">
-
-          <h2 className="text-5xl font-serif mb-10 text-center">
-            {t.guestbook}
-          </h2>
-
-          <textarea
-            rows={6}
-            placeholder="Write your beautiful message here..."
-            className="w-full bg-white/10 border border-white/20 rounded-3xl p-6 text-xl outline-none"
-          />
-
-          <button className="mt-8 bg-[#ffd9ef] text-black px-10 py-4 rounded-full text-xl font-bold">
-            Post Message
-          </button>
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-8">
+            <h3 className="text-3xl font-serif mb-6">🎵 Celebration</h3>
+            <p>• Music</p>
+            <p>• Dance</p>
+            <p>• Memories</p>
+          </div>
 
         </div>
       </section>
 
-      {/* UPLOAD MEMORIES */}
+      {/* parking + route */}
+      <section className="py-20 px-6 relative z-10">
 
-      <section className="px-6 md:px-12 pb-32">
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
 
-        <div className="bg-[#3f1f1f]/60 rounded-[45px] p-12 md:p-16 text-center">
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
+            <h2 className="text-4xl font-serif text-pink-200 mb-6">
+              {t.parking}
+            </h2>
 
-          <h2 className="text-5xl font-serif mb-8">
+            <p className="text-xl leading-relaxed">
+              Private parking spaces are available near the venue for all guests.
+            </p>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
+            <h2 className="text-4xl font-serif text-pink-200 mb-6">
+              {t.route}
+            </h2>
+
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              className="inline-block mt-6 bg-[#93e2cf] text-black px-8 py-4 rounded-full font-bold text-xl"
+            >
+              Track Route
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* upload section */}
+      <section className="py-20 px-6 relative z-10">
+
+        <div className="max-w-5xl mx-auto bg-[#2c1f2f] rounded-[40px] p-12 text-center">
+
+          <h2 className="text-5xl font-serif mb-10">
             {t.memories}
           </h2>
 
-          <p className="text-2xl mb-10">
+          <input
+            type="file"
+            multiple
+            className="bg-white text-black p-4 rounded-xl w-full"
+          />
+
+          <p className="mt-6 text-xl">
             {t.upload}
           </p>
 
-          <script
-            async
-            src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"
-            charSet="utf-8"
-          ></script>
+        </div>
 
-          <input
-            type="hidden"
-            role="uploadcare-uploader"
-            data-public-key="e2c5a8a8480409d5b4a1"
-            data-images-only="true"
-            data-multiple="true"
+      </section>
+
+      {/* guest messages */}
+      <section className="py-20 px-6 relative z-10">
+
+        <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-lg rounded-[40px] p-10">
+
+          <h2 className="text-5xl font-serif mb-10 text-center">
+            {t.messages}
+          </h2>
+
+          <textarea
+            placeholder={t.messagePlaceholder}
+            className="w-full h-40 rounded-2xl bg-[#ffffff10] border border-white/20 p-6 text-white text-xl"
           />
 
+          <button className="mt-8 bg-[#f5df77] text-black px-10 py-4 rounded-full font-bold text-xl">
+            {t.send}
+          </button>
+
         </div>
+
       </section>
 
     </main>
