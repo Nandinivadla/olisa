@@ -45,19 +45,17 @@ export default function AnniversaryPage() {
         <source src="/song.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* PASTEL GLOW */}
+      {/* BACKGROUND GLOW */}
       <div className="absolute top-[-300px] left-[-200px] w-[900px] h-[900px] bg-[#ffb56b]/20 blur-[220px] rounded-full"></div>
 
       <div className="absolute bottom-[-300px] right-[-200px] w-[900px] h-[900px] bg-[#ff7db6]/20 blur-[240px] rounded-full"></div>
 
       <div className="absolute top-[30%] left-[30%] w-[700px] h-[700px] bg-[#8ce0c8]/15 blur-[220px] rounded-full"></div>
 
-      <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#ffe77c]/15 blur-[180px] rounded-full"></div>
-
       {/* STARS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-        {[...Array(120)].map((_, i) => (
+        {[...Array(100)].map((_, i) => (
           <div
             key={i}
             className="absolute bg-white rounded-full animate-pulse"
@@ -76,7 +74,7 @@ export default function AnniversaryPage() {
       {/* HEARTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-        {[...Array(40)].map((_, i) => (
+        {[...Array(35)].map((_, i) => (
           <div
             key={i}
             className="absolute text-[#ffd6ea] animate-bounce"
@@ -132,32 +130,30 @@ export default function AnniversaryPage() {
         {/* PHOTO DISPLAY */}
         <div className="relative mt-20 w-full flex justify-center">
 
-          <div className="absolute inset-0 bg-[#ffb56b]/20 blur-3xl rounded-[60px]"></div>
-
           <div className="relative flex flex-wrap justify-center gap-8">
 
             <img
               src="/photo1.jpeg"
               alt=""
-              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[-5deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-5deg]"
             />
 
             <img
               src="/photo2.jpeg"
               alt=""
-              className="w-[320px] h-[430px] md:w-[360px] md:h-[500px] object-cover rounded-[40px] shadow-[0_0_80px_rgba(255,255,255,0.08)] border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[320px] h-[430px] object-cover rounded-[35px] shadow-2xl"
             />
 
             <img
               src="/photo3.jpeg"
               alt=""
-              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[5deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[5deg]"
             />
 
             <img
               src="/photo4.jpeg"
               alt=""
-              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[-3deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-3deg]"
             />
 
           </div>
@@ -194,116 +190,39 @@ export default function AnniversaryPage() {
 
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-5xl font-serif text-[#fff4ef] mb-6">
+          <h2 className="text-5xl font-serif text-[#fff4ef] mb-16">
             Celebration Menu
           </h2>
 
-          <p className="text-[#fff1e7] text-lg italic mb-16">
-            A beautiful evening filled with unforgettable flavors ✨
-          </p>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div className="bg-[#ffb56b]/20 border border-[#ffd7a3] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
-
-              <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
-                Starters
-              </h3>
-
-              <div className="space-y-4 text-[#fff6ef] text-lg">
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-              </div>
-
+            <div className="bg-[#ffb56b]/20 rounded-[40px] p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-serif mb-6">Starters</h3>
+              <p>• ....................</p>
+              <p>• ....................</p>
+              <p>• ....................</p>
             </div>
 
-            <div className="bg-[#ff7db6]/20 border border-[#ffc2dd] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
-
-              <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
-                Main Course
-              </h3>
-
-              <div className="space-y-4 text-[#fff6ef] text-lg">
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-              </div>
-
+            <div className="bg-[#ff7db6]/20 rounded-[40px] p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-serif mb-6">Main Course</h3>
+              <p>• ....................</p>
+              <p>• ....................</p>
+              <p>• ....................</p>
             </div>
 
-            <div className="bg-[#8ce0c8]/20 border border-[#c6fff0] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
-
-              <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
-                Desserts
-              </h3>
-
-              <div className="space-y-4 text-[#fff6ef] text-lg">
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-              </div>
-
+            <div className="bg-[#8ce0c8]/20 rounded-[40px] p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-serif mb-6">Desserts</h3>
+              <p>• ....................</p>
+              <p>• ....................</p>
+              <p>• ....................</p>
             </div>
 
-            <div className="bg-[#ffe77c]/20 border border-[#fff4b5] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
-
-              <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
-                Drinks
-              </h3>
-
-              <div className="space-y-4 text-[#fff6ef] text-lg">
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-                <p>• ....................</p>
-              </div>
-
+            <div className="bg-[#ffe77c]/20 rounded-[40px] p-10 backdrop-blur-xl">
+              <h3 className="text-3xl font-serif mb-6">Drinks</h3>
+              <p>• ....................</p>
+              <p>• ....................</p>
+              <p>• ....................</p>
             </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* PARKING & ROUTE */}
-      <section className="relative z-10 py-24 px-6">
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-
-          <div className="bg-white/10 rounded-[40px] p-10 border border-white/10 backdrop-blur-xl shadow-2xl">
-
-            <h3 className="text-4xl font-serif text-[#ffd6ea] mb-6">
-              Parking Available
-            </h3>
-
-            <p className="text-[#fff1e7] text-lg leading-8">
-              Private parking spaces are available for all guests near the venue.
-            </p>
-
-          </div>
-
-          <div className="bg-white/10 rounded-[40px] p-10 border border-white/10 backdrop-blur-xl shadow-2xl">
-
-            <h3 className="text-4xl font-serif text-[#ffd6ea] mb-6">
-              Ceremony Route
-            </h3>
-
-            <p className="text-[#fff1e7] text-lg leading-8 mb-8">
-              Navigate directly to the anniversary celebration venue.
-            </p>
-
-            <a
-              href="https://www.google.com/maps"
-              target="_blank"
-              className="inline-block bg-[#8ce0c8] hover:bg-[#70cdb3] text-[#111] px-8 py-4 rounded-full font-semibold transition"
-            >
-              Track Route
-            </a>
 
           </div>
 
@@ -314,15 +233,14 @@ export default function AnniversaryPage() {
       {/* FAMILY */}
       <section className="relative z-10 py-24 px-6">
 
-        <div className="max-w-5xl mx-auto bg-white/10 border border-white/10 rounded-[50px] p-14 backdrop-blur-xl text-center shadow-2xl">
+        <div className="max-w-5xl mx-auto bg-white/10 rounded-[45px] p-14 text-center backdrop-blur-xl">
 
           <h2 className="text-5xl font-serif text-[#fff4ef] mb-10">
             Family
           </h2>
 
-          <p className="text-xl md:text-2xl italic leading-10 text-[#fff1e7]">
-            “They are proud beyond words of the beautiful family they created
-            and the love they continue to share every single day.”
+          <p className="text-2xl italic leading-10 text-[#fff1e7]">
+            “They are proud beyond words of the beautiful family they created.”
           </p>
 
           <div className="mt-12 space-y-4 text-2xl text-[#fffaf4]">
