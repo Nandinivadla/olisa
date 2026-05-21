@@ -122,30 +122,43 @@ export default function Home() {
 
       <section className="flex flex-wrap justify-center gap-10 px-8 mb-32">
 
-        <img
-          src="/photo1.jpeg"
-          alt=""
-          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-5deg]"
-        />
+      {/* PHOTO GALLERY */}
 
-        <img
-          src="/photo2.jpeg"
-          alt=""
-          className="w-[320px] h-[430px] object-cover rounded-[35px] shadow-2xl"
-        />
+     <section className="flex flex-wrap justify-center gap-10 px-8 mb-32">
 
-        <img
-          src="/photo3.jpeg"
-          alt=""
-          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[5deg]"
-        />
+     <div className="overflow-hidden rounded-[35px] shadow-2xl">
+    <img
+      src="/photo1.jpeg"
+      alt="photo1"
+      className="w-[280px] h-[380px] object-cover"
+    />
+  </div>
 
-        <img
-          src="/photo4.jpeg"
-          alt=""
-          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-3deg]"
-        />
-      </section>
+  <div className="overflow-hidden rounded-[35px] shadow-2xl">
+    <img
+      src="/photo2.jpeg"
+      alt="photo2"
+      className="w-[320px] h-[430px] object-cover"
+    />
+  </div>
+
+  <div className="overflow-hidden rounded-[35px] shadow-2xl">
+    <img
+      src="/photo3.jpeg"
+      alt="photo3"
+      className="w-[280px] h-[380px] object-cover"
+    />
+  </div>
+
+  <div className="overflow-hidden rounded-[35px] shadow-2xl">
+    <img
+      src="/photo4.jpeg"
+      alt="photo4"
+      className="w-[280px] h-[380px] object-cover"
+    />
+  </div>
+
+</section>
 
       {/* MENU */}
 
