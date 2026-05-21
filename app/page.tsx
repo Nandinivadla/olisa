@@ -1,147 +1,237 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [messages, setMessages] = useState([
-    "25 years of beautiful memories ❤️",
-    "So happy to celebrate this magical evening",
-  ]);
+export default function OlisaPage() {
+  const weddingDate = new Date("2026-08-01T00:00:00");
 
-  const [newMessage, setNewMessage] = useState("");
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
-  const addMessage = () => {
-    if (newMessage.trim() !== "") {
-      setMessages([newMessage, ...messages]);
-      setNewMessage("");
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  useEffect(() => {
+    document.title = "Olisa";
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate.getTime() - now;
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const toggleMusic = () => {
+    const audio = document.getElementById(
+      "bgmusic"
+    ) as HTMLAudioElement;
+
+    if (!audio) return;
+
+    if (musicPlaying) {
+      audio.pause();
+    } else {
+      audio.currentTime = 17;
+      audio.volume = 0.7;
+      audio.play();
     }
-  };
 
-  const showQuote = () => {
-    alert(
-      "Time flies, memories fade, but moments shared with the people we love stay forever."
-    );
+    setMusicPlaying(!musicPlaying);
   };
 
   return (
-    <main className="min-h-screen bg-[#111111] text-[#fff7f5] overflow-hidden relative">
+    <main className="min-h-screen bg-[#050807] text-white overflow-hidden relative">
 
-      {/* DARK GLITTER BACKGROUND */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111111] via-[#1c1b22] to-[#111111]" />
+      {/* FILM GRAIN */}
+      <div className="fixed inset-0 opacity-[0.05] pointer-events-none z-50 mix-blend-soft-light bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
 
-      {/* SOFT GLOW */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#ffffff08] blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#ffffff08] blur-3xl rounded-full" />
+      {/* MUSIC */}
+      <audio id="bgmusic" loop>
+        <source src="/song.mp3" type="audio/mpeg" />
+      </audio>
 
-      {/* FLOATING GLITTER */}
-      <div className="absolute top-20 left-20 text-white text-2xl animate-pulse opacity-60">
-        ✦
-      </div>
+      {/* AURORA GLOWS */}
+      <div className="absolute top-[-200px] left-[-150px] w-[800px] h-[800px] bg-[#29442d]/30 blur-[180px] rounded-full animate-pulse"></div>
 
-      <div className="absolute top-40 right-20 text-white text-xl animate-pulse opacity-40">
-        ✧
-      </div>
+      <div className="absolute bottom-[-200px] right-[-150px] w-[800px] h-[800px] bg-[#220814]/40 blur-[200px] rounded-full animate-pulse"></div>
 
-      <div className="absolute bottom-40 left-1/3 text-white text-2xl animate-pulse opacity-40">
-        ✦
-      </div>
+      <div className="absolute top-[30%] left-[20%] w-[500px] h-[500px] bg-[#5f7f4f]/20 blur-[170px] rounded-full"></div>
 
-      <div className="absolute bottom-20 right-1/4 text-white text-xl animate-pulse opacity-30">
-        ✧
+      {/* STARS */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(150)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-white rounded-full animate-pulse"
+            style={{
+              width: `${Math.random() * 3}px`,
+              height: `${Math.random() * 3}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: Math.random(),
+            }}
+          />
+        ))}
       </div>
 
       {/* FLOATING HEARTS */}
-      <div className="absolute top-32 left-10 text-[#f6dce5] text-4xl opacity-20 animate-pulse">
-        ♡
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-[#5f7f4f] animate-bounce"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${14 + Math.random() * 30}px`,
+              opacity: 0.25,
+              animationDuration: `${3 + Math.random() * 5}s`,
+            }}
+          >
+            ♥
+          </div>
+        ))}
+
       </div>
 
-      <div className="absolute top-52 right-16 text-[#eadfff] text-3xl opacity-20 animate-bounce">
-        ♥
-      </div>
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-3xl bg-black/20 border-b border-[#5f7f4f]/20">
 
-      <div className="absolute bottom-40 left-20 text-[#fff0f6] text-5xl opacity-10 animate-pulse">
-        ♡
-      </div>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
-      <div className="absolute bottom-60 right-24 text-[#f5d0e6] text-4xl opacity-20 animate-ping">
-        ♥
-      </div>
+          <h1 className="text-2xl md:text-3xl font-serif text-[#f7ecef]">
+            Olisa
+          </h1>
 
-      {/* LEAVES */}
-      <div className="absolute top-0 left-0 text-[220px] opacity-10 rotate-12 select-none">
-        🍂
-      </div>
+          <button
+            onClick={toggleMusic}
+            className="bg-[#5f7f4f] hover:bg-[#4c6d3e] text-[#050807] px-6 py-3 rounded-full font-semibold transition duration-300 shadow-[0_0_40px_rgba(95,127,79,0.35)]"
+          >
+            {musicPlaying ? "Pause Music" : "Play Music"}
+          </button>
 
-      <div className="absolute top-0 right-0 text-[220px] opacity-10 -rotate-12 select-none">
-        🍂
-      </div>
+        </div>
 
-      <div className="absolute bottom-0 left-0 text-[180px] opacity-10 rotate-6 select-none">
-        🌿
-      </div>
-
-      <div className="absolute bottom-0 right-0 text-[180px] opacity-10 -rotate-6 select-none">
-        🌿
-      </div>
+      </nav>
 
       {/* HERO */}
-      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24">
+      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-40 pb-28">
 
-        <p className="tracking-[0.4em] uppercase text-sm text-[#e7d7ff] mb-6">
-          Wedding Anniversary Celebration
+        <p className="tracking-[0.5em] uppercase text-sm text-[#5f7f4f] mb-6">
+          Cinematic Love Story
         </p>
 
-        <h1 className="text-6xl md:text-8xl font-light mb-6 text-[#fff7f5]">
-          Olivier & Isabelle
+        <h1 className="text-6xl md:text-8xl font-serif text-[#f7ecef] leading-tight drop-shadow-2xl">
+          Olisa
         </h1>
 
-        <div className="w-32 h-[1px] bg-[#d8c8ff] mb-8"></div>
+        {/* IMAGE */}
+        <div className="relative mt-16 group">
 
-        <p className="max-w-2xl text-lg text-[#e8dff0] leading-8">
-          We are delighted to celebrate this beautiful evening with you
-          and thank you for being part of our special day.
+          <div className="absolute inset-0 bg-[#5f7f4f]/25 blur-3xl rounded-[50px]"></div>
+
+          <img
+            src="/togetherus.jpeg"
+            alt="Olisa"
+            className="relative w-[330px] md:w-[540px] rounded-[40px] border border-[#d8c8b8]/20 shadow-[0_0_100px_rgba(255,255,255,0.08)] object-cover transition duration-700 group-hover:scale-105 sepia-[28%] contrast-110 brightness-90 saturate-75"
+          />
+
+        </div>
+
+        <div className="w-40 h-[3px] bg-[#5f7f4f] my-10 rounded-full"></div>
+
+        <p className="max-w-3xl text-xl md:text-3xl italic text-[#f7ecef] leading-relaxed">
+          “Every love story is beautiful,
+          but ours is my favorite.”
+        </p>
+
+        <p className="max-w-4xl mt-10 text-lg md:text-xl leading-10 text-[#d9d7cf]">
+          In every lifetime,
+          in every universe,
+          somehow our souls would still find each other.
+          <br /><br />
+          Through every smile,
+          every challenge,
+          every dream and every beautiful moment,
+          we created a love story written by destiny itself.
+          <br /><br />
+          This is not just a celebration —
+          it is the beginning of forever.
         </p>
 
       </section>
 
-      {/* INFO */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+      {/* COUNTDOWN */}
+      <section className="relative z-10 px-6 py-24">
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <h2 className="text-center text-5xl font-serif text-[#f7ecef] mb-16">
+          Countdown To Forever
+        </h2>
 
-          <div className="bg-[#3d3538]/70 backdrop-blur-xl rounded-[35px] p-8 border border-[#5d5160] shadow-2xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
 
-            <h2 className="text-[#e7d7ff] text-2xl mb-4">
-              Date
-            </h2>
+          {[
+            { label: "Days", value: timeLeft.days },
+            { label: "Hours", value: timeLeft.hours },
+            { label: "Minutes", value: timeLeft.minutes },
+            { label: "Seconds", value: timeLeft.seconds },
+          ].map((item, index) => (
 
-            <p>23 May 2026</p>
+            <div
+              key={index}
+              className="bg-[#220814]/75 backdrop-blur-xl rounded-3xl shadow-[0_0_40px_rgba(95,127,79,0.08)] p-8 text-center border border-[#5f7f4f]/15 hover:scale-105 transition duration-500"
+            >
 
-          </div>
+              <h3 className="text-5xl font-bold text-[#f7ecef]">
+                {item.value}
+              </h3>
 
-          <div className="bg-[#556177]/70 backdrop-blur-xl rounded-[35px] p-8 border border-[#7480a3] shadow-2xl">
+              <p className="mt-3 text-lg text-[#d9d7cf]">
+                {item.label}
+              </p>
 
-            <h2 className="text-2xl mb-4">
-              Location
-            </h2>
+            </div>
 
-            <p>Vertou — near Briacé School</p>
+          ))}
 
-          </div>
+        </div>
 
-          <div
-            onClick={showQuote}
-            className="bg-[#4b4354]/70 backdrop-blur-xl rounded-[35px] p-8 border border-[#6b587b] shadow-2xl cursor-pointer hover:scale-105 transition"
-          >
+      </section>
 
-            <h2 className="text-2xl mb-4">
-              Time
-            </h2>
+      {/* LOVE LETTER */}
+      <section className="relative z-10 py-28 px-6">
 
-            <p>6:00 PM</p>
+        <div className="max-w-5xl mx-auto text-center">
 
-            <p className="mt-4 text-sm text-[#d8c8ff]">
-              Click for a memory
+          <h2 className="text-5xl font-serif text-[#f7ecef] mb-12">
+            Love Letter
+          </h2>
+
+          <div className="bg-[#220814]/75 border border-[#35543a] rounded-[45px] p-14 backdrop-blur-xl shadow-[0_0_80px_rgba(0,0,0,0.5)]">
+
+            <p className="text-xl md:text-2xl leading-10 text-[#d9d7cf] italic">
+              “You became my safest place,
+              my favorite feeling,
+              my peace,
+              my home.
+              <br /><br />
+              And if I had to choose again,
+              in every lifetime,
+              I would still choose you.”
             </p>
 
           </div>
@@ -150,236 +240,129 @@ export default function Home() {
 
       </section>
 
-      {/* PROGRAM + MENU */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+      {/* MEMORIES */}
+      <section className="relative z-10 py-28 px-6 bg-[#07130d] overflow-hidden">
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="max-w-5xl mx-auto text-center relative z-10">
 
-          {/* PROGRAM */}
-          <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-10 border border-[#494955] shadow-2xl">
+          <h2 className="text-6xl font-serif text-[#f7ecef] mb-10">
+            Wedding Memories
+          </h2>
 
-            <h2 className="text-3xl mb-10 text-[#e7d7ff]">
-              Programme
-            </h2>
+          <p className="text-xl md:text-2xl text-[#d9d7cf] leading-10 max-w-4xl mx-auto">
+            Every smile, every dance, every beautiful moment —
+            help us keep them forever by sharing your favorite memories
+            from our special day.
+          </p>
 
-            <div className="space-y-6">
+          <div className="mt-16 bg-[#220814]/80 border border-[#35543a] rounded-[45px] p-14 backdrop-blur-xl shadow-[0_0_80px_rgba(0,0,0,0.5)]">
 
-              <div className="flex justify-between border-b border-[#4f4f5f] pb-4">
-                <p>Welcome Drinks</p>
-                <p>6:00 PM</p>
-              </div>
+            <script
+              async
+              src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"
+              charSet="utf-8"
+            ></script>
 
-              <div className="flex justify-between border-b border-[#4f4f5f] pb-4">
-                <p>Dinner</p>
-                <p>7:00 PM</p>
-              </div>
-
-              <div className="flex justify-between border-b border-[#4f4f5f] pb-4">
-                <p>Speech & Memories</p>
-                <p>8:30 PM</p>
-              </div>
-
-              <div className="flex justify-between">
-                <p>Music & Celebration</p>
-                <p>10:00 PM</p>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* MENU */}
-          <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-10 border border-[#494955] shadow-2xl">
-
-            <h2 className="text-3xl mb-10 text-[#e7d7ff]">
-              Menu
-            </h2>
-
-            <div className="grid grid-cols-2 gap-5">
-
-              <div className="bg-[#8a7d6d]/80 rounded-[25px] p-5">
-                <h3 className="text-xl mb-4">
-                  Entrées
-                </h3>
-
-                <div className="space-y-2 text-sm">
-                  <p>• Smoked salmon</p>
-                  <p>• Bruschettas</p>
-                  <p>• Cheese platter</p>
-                </div>
-              </div>
-
-              <div className="bg-[#5f6b8c]/80 rounded-[25px] p-5">
-                <h3 className="text-xl mb-4">
-                  Main
-                </h3>
-
-                <div className="space-y-2 text-sm">
-                  <p>• Herb chicken</p>
-                  <p>• Gratin</p>
-                  <p>• Vegetables</p>
-                </div>
-              </div>
-
-              <div className="bg-[#776b82]/80 rounded-[25px] p-5">
-                <h3 className="text-xl mb-4">
-                  Desserts
-                </h3>
-
-                <div className="space-y-2 text-sm">
-                  <p>• Anniversary cake</p>
-                  <p>• Macarons</p>
-                  <p>• Fruits</p>
-                </div>
-              </div>
-
-              <div className="bg-[#483a54]/80 rounded-[25px] p-5">
-                <h3 className="text-xl mb-4">
-                  Drinks
-                </h3>
-
-                <div className="space-y-2 text-sm">
-                  <p>• Wine</p>
-                  <p>• Champagne</p>
-                  <p>• Fresh juice</p>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SWEET MESSAGES + PHOTOS */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
-
-        <div className="grid md:grid-cols-2 gap-6">
-
-          {/* SWEET MESSAGES */}
-          <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-10 border border-[#494955] shadow-2xl">
-
-            <h2 className="text-3xl mb-8 text-[#e7d7ff]">
-              Sweet Messages
-            </h2>
-
-            <textarea
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Write your sweet message..."
-              className="w-full bg-[#1f1f25] border border-[#4d4d5d] rounded-2xl p-5 min-h-[120px] text-white outline-none"
+            <input
+              type="hidden"
+              role="uploadcare-uploader"
+              data-public-key="e2c5a8a8480409d5b4a1"
+              data-images-only="true"
+              data-multiple="true"
             />
 
-            <button
-              onClick={addMessage}
-              className="mt-5 bg-[#d8c8ff] text-black px-8 py-4 rounded-full font-medium hover:scale-105 transition"
-            >
-              Send
+            <p className="mt-6 text-[#d9d7cf] text-lg">
+              Upload your precious memories here ✨
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* RSVP */}
+      <section className="relative z-10 py-24 px-6">
+
+        <div className="max-w-3xl mx-auto bg-[#220814]/75 backdrop-blur-xl rounded-[35px] p-12 shadow-[0_0_60px_rgba(95,127,79,0.08)] border border-[#5f7f4f]/15">
+
+          <h2 className="text-center text-5xl font-serif text-[#f7ecef] mb-12">
+            RSVP
+          </h2>
+
+          <form
+            action="https://formspree.io/f/xbdbglqp"
+            method="POST"
+            className="space-y-6"
+          >
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-full p-5 rounded-2xl bg-[#050807]/60 border border-[#5f7f4f]/15 text-white outline-none"
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="w-full p-5 rounded-2xl bg-[#050807]/60 border border-[#5f7f4f]/15 text-white outline-none"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Leave a loving message..."
+              required
+              className="w-full p-5 rounded-2xl bg-[#050807]/60 border border-[#5f7f4f]/15 text-white outline-none h-40"
+            />
+
+            <button className="w-full bg-[#5f7f4f] hover:bg-[#4c6d3e] text-[#050807] py-5 rounded-2xl text-lg font-semibold transition">
+              Send Love
             </button>
 
-            <div className="space-y-4 mt-8">
-
-              {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className="bg-[#1f1f25] border border-[#444454] rounded-3xl p-5"
-                >
-                  “{msg}”
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-
-          {/* PHOTOS */}
-          <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-10 border border-[#494955] shadow-2xl">
-
-            <h2 className="text-3xl mb-8 text-[#e7d7ff]">
-              Share Your Photos
-            </h2>
-
-            <div className="border-2 border-dashed border-[#6e4f8f] rounded-[30px] p-12 text-center">
-
-              <input
-                type="file"
-                multiple
-                className="block w-full text-[#f1e7ff]"
-              />
-
-              <p className="mt-6 text-[#cbb6e6]">
-                JPG, PNG accepted
-              </p>
-
-            </div>
-
-          </div>
+          </form>
 
         </div>
 
       </section>
 
-      {/* PARKING */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+      {/* FINAL SECTION */}
+      <section className="relative z-10 py-32 text-center">
 
-        <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-10 border border-[#494955] shadow-2xl">
+        <h2 className="text-6xl md:text-7xl font-serif text-[#f7ecef] leading-tight">
+          And So Our Forever Begins...
+        </h2>
 
-          <h2 className="text-3xl mb-8 text-[#e7d7ff]">
-            Access & Parking
-          </h2>
-
-          <div className="space-y-5 text-lg">
-
-            <p>📍 École Briacé, Vertou</p>
-
-            <p>🚗 Free parking available nearby</p>
-
-            <p>🛣️ Around 20 minutes from Nantes</p>
-
-          </div>
-
-        </div>
+        <p className="mt-10 text-xl text-[#d9d7cf] max-w-3xl mx-auto leading-10">
+          Some souls are simply destined to meet.
+          <br /><br />
+          Through every lifetime,
+          every dream,
+          every universe —
+          love always finds its way back home.
+        </p>
 
       </section>
 
-      {/* FAMILY QUOTE */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-20">
+      {/* FOOTER */}
+      <footer className="relative z-10 py-20 text-center bg-black/20 text-white">
 
-        <div className="bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-12 border border-[#494955] shadow-2xl text-center">
+        <h2 className="text-5xl font-serif mb-6 text-[#f7ecef]">
+          Forever Begins Here
+        </h2>
 
-          <h2 className="text-4xl mb-6 text-[#e7d7ff]">
-            A Beautiful Family
-          </h2>
+        <p className="text-lg opacity-90 text-[#d9d7cf]">
+          Thank you for being part of our story.
+        </p>
 
-          <p className="text-xl leading-10 text-[#eadfff]">
-            “Through the years, love created not only memories,
-            but also three beautiful souls they are endlessly proud of —
-            Auriane Clochard, Leïla Clochard and Nathanaël Clochard.”
-          </p>
+        <p className="mt-8 text-sm opacity-70">
+          Olisa • 2026
+        </p>
 
-        </div>
-
-      </section>
-
-      {/* THANK YOU */}
-      <section className="relative z-10 px-6 pb-28">
-
-        <div className="max-w-5xl mx-auto bg-[#24242b]/70 backdrop-blur-xl rounded-[40px] p-12 border border-[#494955] text-center shadow-2xl">
-
-          <h2 className="text-4xl mb-6 text-[#e7d7ff]">
-            Merci
-          </h2>
-
-          <p className="text-lg leading-8 text-[#d8cec2]">
-            Thank you for celebrating this unforgettable moment with us.
-            Your presence makes this evening even more magical.
-          </p>
-
-        </div>
-
-      </section>
+      </footer>
 
     </main>
   );
