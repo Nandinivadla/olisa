@@ -325,27 +325,44 @@ export default function Home() {
         </div>
 
         {/* ROUTE */}
-        <div className="bg-white/10 rounded-[35px] p-10">
+        <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
-          <h3 className="text-5xl font-serif text-pink-200">
-            {t.route}
-          </h3>
+  <h3 className="text-[#f3cfe0] text-5xl md:text-7xl font-serif mb-8 leading-tight">
+    {t.route}
+  </h3>
 
-          <p className="mt-6 text-2xl leading-[1.8]">
-            {t.routeText}
-          </p>
+  <p className="text-white text-2xl md:text-4xl leading-relaxed mb-6">
+    {t.routeText}
+  </p>
 
-          <a
-            href="https://maps.app.goo.gl/pWKbdsW7vnGzegLG8"
-            target="_blank"
-          >
-            <button className="mt-8 bg-[#a8f0dc] text-black font-bold px-10 py-5 rounded-full text-2xl">
-              {t.routeButton}
-            </button>
-          </a>
+  {/* ADDRESS */}
 
-        </div>
+  <div className="bg-white/10 rounded-[30px] p-6 mb-8 border border-white/10">
 
+    <p className="text-[#f7e7ef] text-xl md:text-3xl font-semibold leading-relaxed">
+      Lycée Briacé, Internat fille,
+      <br />
+      Le Landreau 44430
+    </p>
+
+  </div>
+
+  {/* BUTTON */}
+
+  <a
+    href="https://maps.app.goo.gl/pWKbdsW7vnGzegLG8"
+    target="_blank"
+  >
+
+    <button className="bg-[#a9ead7] hover:bg-[#c1f5e6] transition duration-300 text-black text-2xl md:text-3xl font-bold px-10 py-5 rounded-full shadow-xl w-full md:w-auto">
+
+      {t.routeButton}
+
+    </button>
+
+  </a>
+
+</div>
       </section>
 
       {/* EVENING TIMINGS */}
