@@ -3,10 +3,23 @@
 import { useEffect, useState } from "react";
 
 export default function AnniversaryPage() {
-  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(true);
 
   useEffect(() => {
     document.title = "Olivier & Isabelle";
+
+    const audio = document.getElementById(
+      "bgmusic"
+    ) as HTMLAudioElement;
+
+    if (audio) {
+      audio.volume = 0.7;
+      audio.currentTime = 17;
+
+      audio.play().catch(() => {
+        console.log("Autoplay blocked");
+      });
+    }
   }, []);
 
   const toggleMusic = () => {
@@ -19,8 +32,6 @@ export default function AnniversaryPage() {
     if (musicPlaying) {
       audio.pause();
     } else {
-      audio.currentTime = 17;
-      audio.volume = 0.7;
       audio.play();
     }
 
@@ -31,7 +42,7 @@ export default function AnniversaryPage() {
     <main className="min-h-screen bg-[#1b1a1f] text-white overflow-hidden relative">
 
       {/* MUSIC */}
-      <audio id="bgmusic" loop>
+      <audio id="bgmusic" autoPlay loop>
         <source src="/song.mp3" type="audio/mpeg" />
       </audio>
 
@@ -105,10 +116,10 @@ export default function AnniversaryPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-20">
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-24">
 
         <p className="tracking-[0.5em] uppercase text-sm text-[#ffd6ea] mb-8">
-          Wedding Anniversary Celebration
+          25 Years Of Love
         </p>
 
         <h1 className="text-6xl md:text-8xl font-serif text-[#fff4ef] leading-tight">
@@ -116,20 +127,56 @@ export default function AnniversaryPage() {
         </h1>
 
         <p className="mt-10 max-w-4xl text-xl md:text-3xl italic leading-relaxed text-[#fff1e7]">
-          “A timeless love story painted with memories,
-          colors, laughter and forever.”
+          “Love like this deserves to be celebrated.”
         </p>
 
-        {/* IMAGE */}
-        <div className="relative mt-16">
+        {/* PHOTO DISPLAY */}
+        <div className="relative mt-16 w-full flex justify-center">
 
           <div className="absolute inset-0 bg-[#ffb56b]/20 blur-3xl rounded-[60px]"></div>
 
-          <img
-            src="/togetherus.jpeg"
-            alt="Olivier and Isabelle"
-            className="relative w-[340px] md:w-[620px] rounded-[50px] border border-white/10 shadow-[0_0_120px_rgba(255,255,255,0.08)] object-cover"
-          />
+          <div className="relative grid md:grid-cols-3 gap-6">
+
+            <img
+              src="/togetherus.jpeg"
+              alt=""
+              className="w-[280px] h-[380px] object-cover rounded-[35px] rotate-[-4deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+            />
+
+            <img
+              src="/togetherus.jpeg"
+              alt=""
+              className="w-[300px] h-[430px] object-cover rounded-[35px] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+            />
+
+            <img
+              src="/togetherus.jpeg"
+              alt=""
+              className="w-[280px] h-[380px] object-cover rounded-[35px] rotate-[4deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+            />
+
+          </div>
+
+        </div>
+
+        {/* LOVE MESSAGE */}
+        <div className="max-w-5xl mt-24 bg-white/10 backdrop-blur-2xl rounded-[45px] p-12 border border-white/10 shadow-2xl">
+
+          <p className="text-2xl md:text-3xl italic leading-[2.2] text-[#fff1e7]">
+
+            “Years passed, but the way we look at each other never changed.
+
+            Every picture tells our story —
+            love, warmth and family through every season of life.
+
+            Through every challenge,
+            every celebration,
+            every laugh and every dream,
+            we still chose each other.
+
+            For 25 beautiful years.”
+
+          </p>
 
         </div>
 
@@ -150,7 +197,6 @@ export default function AnniversaryPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            {/* STARTERS */}
             <div className="bg-[#ffb56b]/20 border border-[#ffd7a3] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
 
               <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
@@ -166,7 +212,6 @@ export default function AnniversaryPage() {
 
             </div>
 
-            {/* MAIN */}
             <div className="bg-[#ff7db6]/20 border border-[#ffc2dd] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
 
               <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
@@ -182,7 +227,6 @@ export default function AnniversaryPage() {
 
             </div>
 
-            {/* DESSERTS */}
             <div className="bg-[#8ce0c8]/20 border border-[#c6fff0] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
 
               <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
@@ -198,7 +242,6 @@ export default function AnniversaryPage() {
 
             </div>
 
-            {/* DRINKS */}
             <div className="bg-[#ffe77c]/20 border border-[#fff4b5] rounded-[40px] p-10 backdrop-blur-xl shadow-2xl">
 
               <h3 className="text-3xl font-serif text-[#fffaf4] mb-6">
@@ -225,7 +268,6 @@ export default function AnniversaryPage() {
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
 
-          {/* PARKING */}
           <div className="bg-white/10 rounded-[40px] p-10 border border-white/10 backdrop-blur-xl shadow-2xl">
 
             <h3 className="text-4xl font-serif text-[#ffd6ea] mb-6">
@@ -238,7 +280,6 @@ export default function AnniversaryPage() {
 
           </div>
 
-          {/* ROUTE */}
           <div className="bg-white/10 rounded-[40px] p-10 border border-white/10 backdrop-blur-xl shadow-2xl">
 
             <h3 className="text-4xl font-serif text-[#ffd6ea] mb-6">
@@ -284,54 +325,6 @@ export default function AnniversaryPage() {
             <p>Nathanaël Clochard</p>
 
           </div>
-
-        </div>
-
-      </section>
-
-      {/* RSVP */}
-      <section className="relative z-10 py-24 px-6">
-
-        <div className="max-w-3xl mx-auto bg-white/10 rounded-[45px] p-12 border border-white/10 backdrop-blur-xl shadow-2xl">
-
-          <h2 className="text-center text-5xl font-serif text-[#fff4ef] mb-12">
-            RSVP
-          </h2>
-
-          <form
-            action="https://formspree.io/f/xbdbglqp"
-            method="POST"
-            className="space-y-6"
-          >
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="w-full p-5 rounded-2xl bg-black/20 border border-white/10 text-white outline-none"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              className="w-full p-5 rounded-2xl bg-black/20 border border-white/10 text-white outline-none"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Leave a lovely message..."
-              required
-              className="w-full p-5 rounded-2xl bg-black/20 border border-white/10 text-white outline-none h-40"
-            />
-
-            <button className="w-full bg-[#ff7db6] hover:bg-[#ff5ea3] text-white py-5 rounded-2xl text-lg font-semibold transition shadow-xl">
-              Send Love
-            </button>
-
-          </form>
 
         </div>
 
