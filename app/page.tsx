@@ -14,7 +14,6 @@ export default function AnniversaryPage() {
 
     if (audio) {
       audio.volume = 0.7;
-      audio.currentTime = 17;
 
       audio.play().catch(() => {
         console.log("Autoplay blocked");
@@ -39,14 +38,14 @@ export default function AnniversaryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#1b1a1f] text-white overflow-hidden relative">
+    <main className="min-h-screen bg-[#17141c] text-white overflow-hidden relative">
 
       {/* MUSIC */}
       <audio id="bgmusic" autoPlay loop>
         <source src="/song.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* DREAMY PASTEL GLOWS */}
+      {/* PASTEL GLOW */}
       <div className="absolute top-[-300px] left-[-200px] w-[900px] h-[900px] bg-[#ffb56b]/20 blur-[220px] rounded-full"></div>
 
       <div className="absolute bottom-[-300px] right-[-200px] w-[900px] h-[900px] bg-[#ff7db6]/20 blur-[240px] rounded-full"></div>
@@ -74,7 +73,7 @@ export default function AnniversaryPage() {
 
       </div>
 
-      {/* FLOATING HEARTS */}
+      {/* HEARTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
         {[...Array(40)].map((_, i) => (
@@ -116,7 +115,7 @@ export default function AnniversaryPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-24">
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-40 pb-24">
 
         <p className="tracking-[0.5em] uppercase text-sm text-[#ffd6ea] mb-8">
           25 Years Of Love
@@ -131,28 +130,34 @@ export default function AnniversaryPage() {
         </p>
 
         {/* PHOTO DISPLAY */}
-        <div className="relative mt-16 w-full flex justify-center">
+        <div className="relative mt-20 w-full flex justify-center">
 
           <div className="absolute inset-0 bg-[#ffb56b]/20 blur-3xl rounded-[60px]"></div>
 
-          <div className="relative grid md:grid-cols-3 gap-6">
+          <div className="relative flex flex-wrap justify-center gap-8">
 
             <img
-              src="/togetherus.jpeg"
+              src="/photo1.jpeg"
               alt=""
-              className="w-[280px] h-[380px] object-cover rounded-[35px] rotate-[-4deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[-5deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
             />
 
             <img
-              src="/togetherus.jpeg"
+              src="/photo2.jpeg"
               alt=""
-              className="w-[300px] h-[430px] object-cover rounded-[35px] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[320px] h-[430px] md:w-[360px] md:h-[500px] object-cover rounded-[40px] shadow-[0_0_80px_rgba(255,255,255,0.08)] border border-white/10 hover:scale-105 transition duration-500"
             />
 
             <img
-              src="/togetherus.jpeg"
+              src="/photo3.jpeg"
               alt=""
-              className="w-[280px] h-[380px] object-cover rounded-[35px] rotate-[4deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[5deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+            />
+
+            <img
+              src="/photo4.jpeg"
+              alt=""
+              className="w-[280px] h-[380px] md:w-[300px] md:h-[420px] object-cover rounded-[35px] rotate-[-3deg] shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
             />
 
           </div>
@@ -165,6 +170,8 @@ export default function AnniversaryPage() {
           <p className="text-2xl md:text-3xl italic leading-[2.2] text-[#fff1e7]">
 
             “Years passed, but the way we look at each other never changed.
+
+            Love like this deserves to be celebrated.
 
             Every picture tells our story —
             love, warmth and family through every season of life.
