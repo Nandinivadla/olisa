@@ -2,272 +2,289 @@
 
 import { useEffect, useState } from "react";
 
-export default function AnniversaryPage() {
-  const [musicPlaying, setMusicPlaying] = useState(true);
+export default function Home() {
+  const [language, setLanguage] = useState("en");
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
-    document.title = "Olivier & Isabelle";
+    const targetDate = new Date("May 23, 2026 18:00:00").getTime();
 
-    const audio = document.getElementById(
-      "bgmusic"
-    ) as HTMLAudioElement;
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
 
-    if (audio) {
-      audio.volume = 0.7;
-
-      audio.play().catch(() => {
-        console.log("Autoplay blocked");
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        ),
+        minutes: Math.floor(
+          (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        ),
+        seconds: Math.floor(
+          (distance % (1000 * 60)) / 1000
+        ),
       });
-    }
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
-  const toggleMusic = () => {
-    const audio = document.getElementById(
-      "bgmusic"
-    ) as HTMLAudioElement;
-
-    if (!audio) return;
-
-    if (musicPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-
-    setMusicPlaying(!musicPlaying);
-  };
-
   return (
-    <main className="min-h-screen bg-[#17141c] text-white overflow-hidden relative">
+    <main className="min-h-screen bg-gradient-to-b from-[#1c1414] via-[#3b2c27] to-[#10101a] text-[#fff5ef] overflow-hidden">
 
-      {/* MUSIC */}
-      <audio id="bgmusic" autoPlay loop>
-        <source src="/song.mp3" type="audio/mpeg" />
-      </audio>
+      {/* HEADER */}
 
-      {/* BACKGROUND GLOW */}
-      <div className="absolute top-[-300px] left-[-200px] w-[900px] h-[900px] bg-[#ffb56b]/20 blur-[220px] rounded-full"></div>
-
-      <div className="absolute bottom-[-300px] right-[-200px] w-[900px] h-[900px] bg-[#ff7db6]/20 blur-[240px] rounded-full"></div>
-
-      <div className="absolute top-[30%] left-[30%] w-[700px] h-[700px] bg-[#8ce0c8]/15 blur-[220px] rounded-full"></div>
-
-      {/* STARS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        {[...Array(100)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full animate-pulse"
-            style={{
-              width: `${Math.random() * 3}px`,
-              height: `${Math.random() * 3}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random(),
-            }}
-          />
-        ))}
-
-      </div>
-
-      {/* HEARTS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        {[...Array(35)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-[#ffd6ea] animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${15 + Math.random() * 25}px`,
-              opacity: 0.18,
-              animationDuration: `${3 + Math.random() * 5}s`,
-            }}
-          >
-            ♥
-          </div>
-        ))}
-
-      </div>
-
-      {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-3xl bg-black/10 border-b border-white/10">
-
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-
-          <h1 className="text-2xl md:text-3xl font-serif text-[#fff6f0]">
-            Olivier & Isabelle
-          </h1>
-
-          <button
-            onClick={toggleMusic}
-            className="bg-[#ffe77c] hover:bg-[#ffd95d] text-[#111] px-6 py-3 rounded-full font-semibold transition duration-300 shadow-2xl"
-          >
-            {musicPlaying ? "Pause Music" : "Play Music"}
-          </button>
-
-        </div>
-
-      </nav>
-
-      {/* HERO */}
-      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 pt-40 pb-24">
-
-        <p className="tracking-[0.5em] uppercase text-sm text-[#ffd6ea] mb-8">
-          25 Years Of Love
-        </p>
-
-        <h1 className="text-6xl md:text-8xl font-serif text-[#fff4ef] leading-tight">
-          Olivier <span className="text-[#ffe77c]">&</span> Isabelle
+      <header className="flex justify-between items-center px-8 py-6 border-b border-white/10">
+        <h1 className="text-5xl font-serif">
+          Olivier & Isabelle
         </h1>
 
-        <p className="mt-10 max-w-4xl text-xl md:text-3xl italic leading-relaxed text-[#fff1e7]">
-          “Love like this deserves to be celebrated.”
+        <div className="flex gap-4">
+          <button
+            onClick={() => setLanguage("en")}
+            className="bg-[#f7e27a] text-black px-5 py-2 rounded-full font-semibold"
+          >
+            EN
+          </button>
+
+          <button
+            onClick={() => setLanguage("fr")}
+            className="bg-[#f7e27a] text-black px-5 py-2 rounded-full font-semibold"
+          >
+            FR
+          </button>
+        </div>
+      </header>
+
+      {/* HERO */}
+
+      <section className="text-center py-24 px-6">
+        <h2 className="text-7xl font-serif mb-8 text-[#ffe8d6]">
+          {language === "en"
+            ? "25 Years Of Love"
+            : "25 Ans D’Amour"}
+        </h2>
+
+        <p className="text-2xl max-w-4xl mx-auto leading-relaxed text-[#f9ddd0]">
+          {language === "en"
+            ? "Every picture tells our story — love, warmth and family through every season of life."
+            : "Chaque photo raconte notre histoire — amour, chaleur et famille à travers chaque saison de la vie."}
         </p>
+      </section>
 
-        {/* PHOTO DISPLAY */}
-        <div className="relative mt-20 w-full flex justify-center">
+      {/* COUNTDOWN */}
 
-          <div className="relative flex flex-wrap justify-center gap-8">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 px-8 mb-28">
 
-            <img
-              src="/photo1.jpeg"
-              alt=""
-              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-5deg]"
-            />
+        {[
+          {
+            label: language === "en" ? "Days" : "Jours",
+            value: timeLeft.days,
+          },
+          {
+            label: language === "en" ? "Hours" : "Heures",
+            value: timeLeft.hours,
+          },
+          {
+            label: language === "en" ? "Minutes" : "Minutes",
+            value: timeLeft.minutes,
+          },
+          {
+            label: language === "en" ? "Seconds" : "Secondes",
+            value: timeLeft.seconds,
+          },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="bg-[#3f1f1f]/60 backdrop-blur-xl rounded-[35px] p-10 text-center shadow-2xl"
+          >
+            <h3 className="text-6xl font-bold mb-4">
+              {item.value}
+            </h3>
 
-            <img
-              src="/photo2.jpeg"
-              alt=""
-              className="w-[320px] h-[430px] object-cover rounded-[35px] shadow-2xl"
-            />
-
-            <img
-              src="/photo3.jpeg"
-              alt=""
-              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[5deg]"
-            />
-
-            <img
-              src="/photo4.jpeg"
-              alt=""
-              className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-3deg]"
-            />
-
+            <p className="text-2xl">
+              {item.label}
+            </p>
           </div>
+        ))}
+      </section>
 
-        </div>
+      {/* PHOTO GALLERY */}
 
-        {/* LOVE MESSAGE */}
-        <div className="max-w-5xl mt-24 bg-white/10 backdrop-blur-2xl rounded-[45px] p-12 border border-white/10 shadow-2xl">
+      <section className="flex flex-wrap justify-center gap-10 px-8 mb-32">
 
-          <p className="text-2xl md:text-3xl italic leading-[2.2] text-[#fff1e7]">
+        <img
+          src="/photo1.jpeg"
+          alt=""
+          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-5deg]"
+        />
 
-            “Years passed, but the way we look at each other never changed.
+        <img
+          src="/photo2.jpeg"
+          alt=""
+          className="w-[320px] h-[430px] object-cover rounded-[35px] shadow-2xl"
+        />
 
-            Love like this deserves to be celebrated.
+        <img
+          src="/photo3.jpeg"
+          alt=""
+          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[5deg]"
+        />
 
-            Every picture tells our story —
-            love, warmth and family through every season of life.
-
-            Through every challenge,
-            every celebration,
-            every laugh and every dream,
-            we still chose each other.
-
-            For 25 beautiful years.”
-
-          </p>
-
-        </div>
-
+        <img
+          src="/photo4.jpeg"
+          alt=""
+          className="w-[280px] h-[380px] object-cover rounded-[35px] shadow-2xl rotate-[-3deg]"
+        />
       </section>
 
       {/* MENU */}
-      <section className="relative z-10 py-24 px-6">
 
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="px-8 mb-32">
 
-          <h2 className="text-5xl font-serif text-[#fff4ef] mb-16">
-            Celebration Menu
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <div className="bg-[#ffb56b]/20 rounded-[40px] p-10 backdrop-blur-xl">
-              <h3 className="text-3xl font-serif mb-6">Starters</h3>
-              <p>• ....................</p>
-              <p>• ....................</p>
-              <p>• ....................</p>
-            </div>
-
-            <div className="bg-[#ff7db6]/20 rounded-[40px] p-10 backdrop-blur-xl">
-              <h3 className="text-3xl font-serif mb-6">Main Course</h3>
-              <p>• ....................</p>
-              <p>• ....................</p>
-              <p>• ....................</p>
-            </div>
-
-            <div className="bg-[#8ce0c8]/20 rounded-[40px] p-10 backdrop-blur-xl">
-              <h3 className="text-3xl font-serif mb-6">Desserts</h3>
-              <p>• ....................</p>
-              <p>• ....................</p>
-              <p>• ....................</p>
-            </div>
-
-            <div className="bg-[#ffe77c]/20 rounded-[40px] p-10 backdrop-blur-xl">
-              <h3 className="text-3xl font-serif mb-6">Drinks</h3>
-              <p>• ....................</p>
-              <p>• ....................</p>
-              <p>• ....................</p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* FAMILY */}
-      <section className="relative z-10 py-24 px-6">
-
-        <div className="max-w-5xl mx-auto bg-white/10 rounded-[45px] p-14 text-center backdrop-blur-xl">
-
-          <h2 className="text-5xl font-serif text-[#fff4ef] mb-10">
-            Family
-          </h2>
-
-          <p className="text-2xl italic leading-10 text-[#fff1e7]">
-            “They are proud beyond words of the beautiful family they created.”
-          </p>
-
-          <div className="mt-12 space-y-4 text-2xl text-[#fffaf4]">
-
-            <p>Auriane Clochard</p>
-            <p>Leïla Clochard</p>
-            <p>Nathanaël Clochard</p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="relative z-10 py-20 text-center">
-
-        <h2 className="text-5xl font-serif text-[#fff4ef] mb-6">
-          Olivier & Isabelle
+        <h2 className="text-6xl font-serif text-center mb-16 text-[#ffd5ec]">
+          {language === "en"
+            ? "Celebration Menu"
+            : "Menu De La Célébration"}
         </h2>
 
-        <p className="text-[#fff1e7] text-lg italic">
-          Wedding Anniversary • 23 May 2026
-        </p>
+        <div className="grid md:grid-cols-2 gap-10">
 
-      </footer>
+          {[
+            "• Starter\n• Salad\n• Special Dish",
+            "• Dessert\n• Cake\n• Champagne",
+            "• Kids Menu\n• Soft Drinks\n• Snacks",
+            "• Special Surprise\n• Family Toast\n• Celebration"
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-white/10 backdrop-blur-xl rounded-[35px] p-10"
+            >
+              <pre className="text-2xl whitespace-pre-wrap font-serif">
+                {item}
+              </pre>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* PARKING + ROUTE */}
+
+      <section className="grid md:grid-cols-2 gap-10 px-8 mb-20">
+
+        <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-12">
+          <h2 className="text-5xl font-serif mb-8 text-[#ffd5ec]">
+            {language === "en"
+              ? "Parking Available"
+              : "Parking Disponible"}
+          </h2>
+
+          <p className="text-2xl leading-relaxed">
+            {language === "en"
+              ? "Private parking spaces are available for all guests near the venue."
+              : "Des places de parking privées sont disponibles pour tous les invités près du lieu de célébration."}
+          </p>
+        </div>
+
+        <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-12">
+          <h2 className="text-5xl font-serif mb-8 text-[#ffd5ec]">
+            {language === "en"
+              ? "Ceremony Route"
+              : "Route De La Cérémonie"}
+          </h2>
+
+          <p className="text-2xl mb-10">
+            {language === "en"
+              ? "Navigate directly to the anniversary celebration venue."
+              : "Naviguez directement vers le lieu de célébration."}
+          </p>
+
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            className="bg-[#9cf0d4] text-black px-10 py-5 rounded-full text-2xl font-bold"
+          >
+            {language === "en"
+              ? "Track Route"
+              : "Voir La Route"}
+          </a>
+        </div>
+      </section>
+
+      {/* MESSAGE */}
+
+      <section className="px-8 mb-32">
+
+        <div className="bg-white/10 backdrop-blur-xl rounded-[45px] p-16 text-center">
+
+          <p className="text-3xl italic leading-loose max-w-6xl mx-auto text-[#fff0e8]">
+
+            {language === "en" ? (
+              <>
+                “Years passed, but the way we look at each other never changed.
+                Love like this deserves to be celebrated.
+                Every picture tells our story — love, warmth and family through every season of life.
+                Through every challenge, every celebration, every laugh and every dream,
+                we still chose each other.
+                For 25 beautiful years.”
+              </>
+            ) : (
+              <>
+                “Les années ont passé, mais la façon dont nous nous regardons n’a jamais changé.
+                Un amour comme celui-ci mérite d’être célébré.
+                Chaque photo raconte notre histoire — amour, chaleur et famille à travers chaque saison de la vie.
+                À travers chaque défi, chaque célébration, chaque rire et chaque rêve,
+                nous nous sommes toujours choisis.
+                Depuis 25 magnifiques années.”
+              </>
+            )}
+
+          </p>
+        </div>
+      </section>
+
+      {/* UPLOAD MEMORIES */}
+
+      <section className="px-8 pb-32">
+
+        <div className="bg-[#3f1f1f]/60 rounded-[45px] p-16 text-center">
+
+          <h2 className="text-5xl font-serif mb-8">
+            {language === "en"
+              ? "Share Your Memories"
+              : "Partagez Vos Souvenirs"}
+          </h2>
+
+          <p className="text-2xl mb-10">
+            {language === "en"
+              ? "Upload your beautiful pictures and memories from this celebration."
+              : "Téléchargez vos magnifiques photos et souvenirs de cette célébration."}
+          </p>
+
+          <script
+            async
+            src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"
+            charSet="utf-8"
+          ></script>
+
+          <input
+            type="hidden"
+            role="uploadcare-uploader"
+            data-public-key="e2c5a8a8480409d5b4a1"
+            data-images-only="true"
+            data-multiple="true"
+          />
+        </div>
+      </section>
     </main>
   );
 }
