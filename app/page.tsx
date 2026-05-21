@@ -611,13 +611,7 @@ export default function Home() {
         </p>
 
       </section>
-
-    </main>
-  );
-}
-{/* COPYRIGHT */}
-
-<footer className="text-center py-12 mt-24 border-t border-white/10">
+<div className="text-center py-12 mt-24 border-t border-white/10">
 
   <p className="text-[#f3cfe0] text-lg md:text-2xl tracking-wide">
     © 2026 Olivier & Isabelle — 25 Years Of Love ✨
@@ -627,4 +621,7 @@ export default function Home() {
     Made with love for a beautiful celebration 💌
   </p>
 
-</footer>
+</div>
+    </main>
+  );
+}
