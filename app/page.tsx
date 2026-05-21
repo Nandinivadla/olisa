@@ -164,24 +164,34 @@ Isabelle & Olivier
         </p>
       </section>
 
-      {/* 3 PHOTOS */}
-      <section className="flex flex-col md:flex-row gap-8 justify-center items-center px-6">
+     {/* 3 PHOTOS */}
+<section className="flex flex-col gap-8 justify-center items-center px-6 py-10">
 
-        <img
-          src="/photo1.jpeg"
-          className="w-[320px] h-[420px] object-cover rounded-[35px] shadow-2xl"
-        />
+  {/* TOP 2 PHOTOS */}
+  <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
 
-        <img
-          src="/photo2.jpeg"
-          className="w-[320px] h-[420px] object-cover rounded-[35px] shadow-2xl"
-        />
+    <img
+      src="/photo1.jpeg"
+      alt=""
+      className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
+    />
 
-        <img
-          src="/photo3.jpeg"
-          className="w-[320px] h-[420px] object-cover rounded-[35px] shadow-2xl"
-        />
-      </section>
+    <img
+      src="/photo3.jpeg"
+      alt=""
+      className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
+    />
+
+  </div>
+
+  {/* BIG HORIZONTAL PHOTO */}
+  <img
+    src="/photo4.jpeg"
+    alt=""
+    className="w-full max-w-[1100px] h-[500px] object-cover object-center rounded-[40px] shadow-2xl border border-white/10"
+  />
+
+</section>
 
       {/* FAMILY QUOTE */}
       <section className="px-6 py-20">
@@ -204,7 +214,121 @@ Isabelle & Olivier
           </p>
         </div>
       </section>
+           {/* EVENT TIMINGS */}
+      <section className="px-6 pb-20">
+        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
 
+          <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
+            {lang === "fr" ? "Horaires De L’événement" : "Event Timings"}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
+                {lang === "fr" ? "Accueil Des Invités" : "Guest Arrival"}
+              </h3>
+
+              <p className="text-2xl">
+                --:--
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
+                {lang === "fr" ? "Dîner" : "Dinner"}
+              </h3>
+
+              <p className="text-2xl">
+                --:--
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
+                {lang === "fr" ? "Célébration" : "Celebration"}
+              </h3>
+
+              <p className="text-2xl">
+                --:--
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-4 text-[#ffdce9]">
+                {lang === "fr" ? "Dessert & Musique" : "Dessert & Music"}
+              </h3>
+
+              <p className="text-2xl">
+                --:--
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* MENU */}
+      <section className="px-6 pb-20">
+        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
+
+          <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
+            {lang === "fr" ? "Menu" : "Menu"}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-5">
+                {lang === "fr" ? "Entrée" : "Starter"}
+              </h3>
+
+              <p className="text-xl leading-loose">
+                • ---------- <br />
+                • ---------- <br />
+                • ----------
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-5">
+                {lang === "fr" ? "Plat Principal" : "Main Course"}
+              </h3>
+
+              <p className="text-xl leading-loose">
+                • ---------- <br />
+                • ---------- <br />
+                • ----------
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-5">
+                {lang === "fr" ? "Desserts" : "Desserts"}
+              </h3>
+
+              <p className="text-xl leading-loose">
+                • ---------- <br />
+                • ---------- <br />
+                • ----------
+              </p>
+            </div>
+
+            <div className="bg-white/10 rounded-[30px] p-8">
+              <h3 className="text-3xl font-serif mb-5">
+                {lang === "fr" ? "Boissons" : "Drinks"}
+              </h3>
+
+              <p className="text-xl leading-loose">
+                • ---------- <br />
+                • ---------- <br />
+                • ----------
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
       {/* PARKING + ROUTE */}
       <section className="grid md:grid-cols-2 gap-8 px-6 pb-20">
 
