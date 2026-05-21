@@ -442,13 +442,19 @@ export default function Home() {
 
       </section>
 
-      {/* RSVP */}
+      {/* RSVP SECTION */}
 
-<section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10">
+<section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10 backdrop-blur-md border border-white/10">
 
-  <h2 className="text-center text-6xl font-serif mb-10 text-[#fff4ef]">
-    RSVP
+  <h2 className="text-center text-6xl font-serif mb-6 text-[#fff4ef]">
+    RSVP 💌
   </h2>
+
+  <p className="text-center text-2xl italic mb-10 text-[#f6d6e6]">
+    {lang === "fr"
+      ? "Laissez-nous un message rempli d’amour et de beaux souvenirs ✨"
+      : "Leave us a message filled with love and beautiful memories ✨"}
+  </p>
 
   <form
     action="https://formsubmit.co/clochardolisa@gmail.com"
@@ -456,37 +462,77 @@ export default function Home() {
     className="space-y-6"
   >
 
-    <input type="hidden" name="_captcha" value="false" />
+    {/* FORM SETTINGS */}
+
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    />
+
+    <input
+      type="hidden"
+      name="_template"
+      value="table"
+    />
+
+    <input
+      type="hidden"
+      name="_subject"
+      value="New RSVP Message 💌"
+    />
+
+    {/* NAME */}
 
     <input
       type="text"
       name="name"
-      placeholder="Your Name"
+      placeholder={
+        lang === "fr"
+          ? "Votre nom"
+          : "Your Name"
+      }
       required
-      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
     />
+
+    {/* EMAIL */}
 
     <input
       type="email"
       name="email"
-      placeholder="Your Email"
+      placeholder={
+        lang === "fr"
+          ? "Votre email"
+          : "Your Email"
+      }
       required
-      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
     />
+
+    {/* MESSAGE */}
 
     <textarea
       name="message"
-      placeholder="Write your sweet message here..."
-      rows={6}
+      rows={7}
+      placeholder={
+        lang === "fr"
+          ? "Écrivez un joli message rempli d’amour..."
+          : "Write a sweet message filled with love..."
+      }
       required
-      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
     />
+
+    {/* SEND BUTTON */}
 
     <button
       type="submit"
-      className="w-full bg-[#f4df7d] text-black text-3xl font-bold py-5 rounded-full"
+      className="w-full bg-[#f4df7d] hover:bg-[#f8e79d] transition duration-300 text-black text-3xl font-bold py-5 rounded-full shadow-2xl"
     >
-      Send RSVP 💌
+      {lang === "fr"
+        ? "Envoyer 💌"
+        : "Send RSVP 💌"}
     </button>
 
   </form>
