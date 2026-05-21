@@ -443,40 +443,55 @@ export default function Home() {
       </section>
 
       {/* RSVP */}
-      <section className="max-w-6xl mx-auto mt-10 bg-white/10 rounded-[40px] p-10">
 
-        <h2 className="text-center text-6xl font-serif">
-          {t.rsvp}
-        </h2>
+<section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10">
 
-        <div className="mt-10 space-y-6">
+  <h2 className="text-center text-6xl font-serif mb-10 text-[#fff4ef]">
+    RSVP
+  </h2>
 
-          <input
-            placeholder={t.name}
-            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
-          />
+  <form
+    action="https://formsubmit.co/clochardolisa@gmail.com"
+    method="POST"
+    className="space-y-6"
+  >
 
-          <input
-            placeholder={t.email}
-            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
-          />
+    <input type="hidden" name="_captcha" value="false" />
 
-          <textarea
-            placeholder={t.message}
-            rows={6}
-            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
-          />
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+    />
 
-          <button
-            onClick={() => alert("RSVP Sent 💌")}
-            className="w-full bg-[#f4df7d] text-black text-3xl font-bold py-5 rounded-full"
-          >
-            {t.send}
-          </button>
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+    />
 
-        </div>
+    <textarea
+      name="message"
+      placeholder="Write your sweet message here..."
+      rows={6}
+      required
+      className="w-full p-6 rounded-[25px] bg-[#ffffff10] text-2xl outline-none"
+    />
 
-      </section>
+    <button
+      type="submit"
+      className="w-full bg-[#f4df7d] text-black text-3xl font-bold py-5 rounded-full"
+    >
+      Send RSVP 💌
+    </button>
+
+  </form>
+
+</section>
 
       {/* MEMORIES */}
       <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
