@@ -8,17 +8,18 @@ export default function Home() {
   const text = {
     en: {
       title: "25 Years Of Love",
+
       quote:
         "Years passed, but the way we look at each other never changed.",
 
       welcome1:
-        "From the bottom of our hearts, THANK YOU. Thank you for surrounding us with your love, your presence and your precious friendship.",
+        "From the bottom of our hearts, THANK YOU. Thank you for surrounding us today with your love, your presence and your precious friendship.",
 
       welcome2:
-        "This evening will pass too quickly and we do not want to forget a single moment.",
+        "This evening will pass far too quickly and we do not want to forget a single smile, a single laugh or a single beautiful memory shared together.",
 
       welcome3:
-        "Use this website to share your beautiful memories, photos and loving words with us.",
+        "To help us keep these precious moments forever, please use this website to upload your photos, share your memories and leave us a heartfelt message. A simple scan of the QR code and a few clicks are enough to participate in this beautiful shared memory book.",
 
       family:
         "Our greatest blessing in life is the beautiful family we built together with Auriane Clochard • Leïla Clochard • Nathanaël Clochard.",
@@ -76,10 +77,10 @@ export default function Home() {
         "Du fond du cœur, MERCI. Merci de nous entourer aujourd’hui de votre amour, de votre présence et de votre précieuse amitié.",
 
       welcome2:
-        "Parce que cette soirée va passer trop vite, nous ne voulons oublier aucun instant.",
+        "Parce que cette soirée va passer beaucoup trop vite, nous ne voulons oublier ni un sourire, ni un rire, ni un seul des beaux souvenirs partagés ensemble.",
 
       welcome3:
-        "Utilisez ce site pour partager vos souvenirs, vos photos et vos mots doux avec nous.",
+        "Pour nous aider à garder ces précieux moments pour toujours, utilisez ce site pour ajouter vos photos, partager vos souvenirs et nous laisser un message rempli d’amour. Un simple scan du QR code et quelques clics suffisent pour participer à ce magnifique livre de souvenirs partagé.",
 
       family:
         "Notre plus belle bénédiction est la magnifique famille que nous avons construite avec Auriane Clochard • Leïla Clochard • Nathanaël Clochard.",
@@ -133,7 +134,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#1b0808] text-[#fff4ef] overflow-hidden relative">
 
-      {/* BACKGROUND HEARTS */}
+      {/* HEARTS */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
 
         <div className="absolute top-20 left-10 text-4xl animate-pulse">
@@ -152,9 +153,6 @@ export default function Home() {
           ♥
         </div>
 
-        <div className="absolute top-[1900px] left-[15%] text-3xl">
-          ♥
-        </div>
       </div>
 
       {/* HEADER */}
@@ -240,7 +238,6 @@ export default function Home() {
       {/* 4 BOXES */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
 
-        {/* PARKING */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -253,7 +250,6 @@ export default function Home() {
 
         </div>
 
-        {/* ROUTE */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -275,7 +271,6 @@ export default function Home() {
 
         </div>
 
-        {/* TIMINGS */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -291,7 +286,6 @@ export default function Home() {
 
         </div>
 
-        {/* ADDRESS */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -300,10 +294,6 @@ export default function Home() {
 
           <p className="mt-6 text-2xl leading-[1.8]">
             {t.addressText}
-          </p>
-
-          <p className="mt-6 text-xl text-pink-100">
-            Salle des fêtes — France
           </p>
 
         </div>
