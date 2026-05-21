@@ -3,181 +3,179 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [lang, setLang] = useState("fr");
+  const [lang, setLang] = useState("en");
 
   const text = {
-    fr: {
-      title: "Olivier & Isabelle",
-      subtitle: "25 Ans D’amour",
-
-      quote:
-        "Les années passent, mais la façon dont nous nous regardons n’a jamais changé.",
-
-      family:
-        "Notre plus belle réussite dans la vie est l’amour et la magnifique famille que nous avons construite avec Auriane Clochard, Leïla Clochard et Nathanaël Clochard.",
-
-      welcomeTitle: "Bienvenue sur notre espace partagé !",
-
-      welcomeText: `
-Du fond du cœur, MERCI.
-
-Merci de nous entourer aujourd'hui, de nous gâter par votre présence, votre amour et votre précieuse amitié.
-
-Parce que cette soirée va passer trop vite et que nous ne voulons rien oublier, nous avons besoin de vous !
-
-Pour participer à nos souvenirs :
-Utilisez ce site pour y glisser vos photos de la soirée et vos mots doux.
-
-Petit scan du QR Code et quelques clics suffisent pour ajouter vos images et vos messages.
-
-Profitez bien de la fête, on vous aime !
-
-Isabelle et Olivier
-      `,
-
-      timings: "Horaires De L’événement",
-
-      menu: "Menu",
-
-      parking: "Parking Gratuit Disponible",
-
-      parkingText:
-        "Des places de parking gratuites sont disponibles pour tous les invités près du lieu de célébration.",
-
-      route: "Lieu & Itinéraire",
-
-      routeText:
-        "Cliquez ci-dessous pour suivre l’itinéraire vers le lieu de célébration.",
-
-      routeButton: "Suivre L’itinéraire",
-
-      guest: "Messages Des Invités",
-
-      guestPlaceholder:
-        "Écrivez un joli message rempli d’amour...",
-
-      upload: "Partager Vos Souvenirs",
-
-      uploadText:
-        "Ajoutez vos photos préférées de cette magnifique célébration.",
-
-      thanks:
-        "Merci de célébrer cet amour avec nous. Votre présence rend cette journée encore plus belle.",
-    },
-
     en: {
-      title: "Olivier & Isabelle",
-
-      subtitle: "25 Years Of Love",
-
+      title: "25 Years Of Love",
       quote:
         "Years passed, but the way we look at each other never changed.",
 
+      welcome1:
+        "From the bottom of our hearts, THANK YOU. Thank you for surrounding us with your love, your presence and your precious friendship.",
+
+      welcome2:
+        "This evening will pass too quickly and we do not want to forget a single moment.",
+
+      welcome3:
+        "Use this website to share your beautiful memories, photos and loving words with us.",
+
       family:
-        "Our greatest blessing in life is the love and beautiful family we built together with Auriane Clochard, Leïla Clochard and Nathanaël Clochard.",
+        "Our greatest blessing in life is the beautiful family we built together with Auriane Clochard • Leïla Clochard • Nathanaël Clochard.",
 
-      welcomeTitle: "Welcome to our shared space!",
-
-      welcomeText: `
-From the bottom of our hearts, THANK YOU.
-
-Thank you for surrounding us today with your presence, your love and your precious friendship.
-
-Because this evening will pass too quickly and we do not want to forget anything, we need you!
-
-To share memories with us:
-Use this website to upload your evening photos and your sweet messages.
-
-Just scan the QR code and with a few clicks you can add your pictures and messages.
-
-Enjoy the celebration, we love you!
-
-Isabelle & Olivier
-      `,
-
-      timings: "Event Timings",
-
-      menu: "Menu",
-
-      parking: "Free Parking Available",
+      parking: "Parking Available",
 
       parkingText:
-        "Free parking spaces are available for all guests near the celebration venue.",
+        "Free parking spaces are available for all guests near the venue.",
 
-      route: "Venue & Route",
+      route: "Ceremony Route",
 
       routeText:
-        "Click below to navigate directly to the celebration venue.",
+        "Navigate directly to the anniversary celebration venue.",
 
       routeButton: "Track Route",
 
-      guest: "Guest Messages",
+      timings: "Event Timings",
 
-      guestPlaceholder:
-        "Write a sweet message filled with love...",
+      t1: "Welcome Drinks — --:--",
+      t2: "Ceremony — --:--",
+      t3: "Dinner & Celebration — --:--",
+      t4: "Closing Dance — --:--",
 
-      upload: "Share Your Memories",
+      address: "Venue Address",
 
-      uploadText:
-        "Upload your favorite photos from this beautiful celebration.",
+      addressText:
+        "The celebration venue address and route are available here for all guests.",
 
-      thanks:
-        "Thank you for celebrating this love with us. Your presence makes this day even more beautiful.",
+      rsvp: "RSVP",
+
+      name: "Name",
+      email: "Email",
+      message: "Message",
+
+      send: "Send RSVP",
+
+      memories: "Share Your Memories",
+
+      memoriesText:
+        "Upload your favorite memories and photos with us.",
+
+      upload: "Choose Photos",
+
+      thank:
+        "Thank you for celebrating love, family and beautiful memories with us.",
+    },
+
+    fr: {
+      title: "25 Ans D’amour",
+
+      quote:
+        "Les années passent, mais notre regard l’un pour l’autre n’a jamais changé.",
+
+      welcome1:
+        "Du fond du cœur, MERCI. Merci de nous entourer aujourd’hui de votre amour, de votre présence et de votre précieuse amitié.",
+
+      welcome2:
+        "Parce que cette soirée va passer trop vite, nous ne voulons oublier aucun instant.",
+
+      welcome3:
+        "Utilisez ce site pour partager vos souvenirs, vos photos et vos mots doux avec nous.",
+
+      family:
+        "Notre plus belle bénédiction est la magnifique famille que nous avons construite avec Auriane Clochard • Leïla Clochard • Nathanaël Clochard.",
+
+      parking: "Parking Disponible",
+
+      parkingText:
+        "Des places de parking gratuites sont disponibles près du lieu.",
+
+      route: "Itinéraire",
+
+      routeText:
+        "Accédez directement au lieu de célébration.",
+
+      routeButton: "Voir La Route",
+
+      timings: "Horaires",
+
+      t1: "Accueil — --:--",
+      t2: "Cérémonie — --:--",
+      t3: "Dîner & Célébration — --:--",
+      t4: "Dernière Danse — --:--",
+
+      address: "Adresse",
+
+      addressText:
+        "L’adresse et l’itinéraire du lieu de célébration sont disponibles ici.",
+
+      rsvp: "RSVP",
+
+      name: "Nom",
+      email: "Email",
+      message: "Message",
+
+      send: "Envoyer",
+
+      memories: "Partagez Vos Souvenirs",
+
+      memoriesText:
+        "Ajoutez vos photos et souvenirs préférés avec nous.",
+
+      upload: "Choisir Des Photos",
+
+      thank:
+        "Merci de célébrer l’amour, la famille et ces beaux souvenirs avec nous.",
     },
   };
 
-  const t = text[lang as "fr" | "en"];
+  const t = text[lang as "en" | "fr"];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#241717] via-[#2d1b1b] to-[#120d14] text-[#fff4ef] overflow-hidden relative">
+    <main className="min-h-screen bg-[#1b0808] text-[#fff4ef] overflow-hidden relative">
 
-      {/* GLITTER + HEARTS + LEAFS */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* BACKGROUND HEARTS */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
 
-        {[...Array(40)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-pink-200 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${12 + Math.random() * 20}px`,
-              opacity: 0.25,
-            }}
-          >
-            ♥
-          </div>
-        ))}
-
-        <div className="absolute top-20 left-10 text-5xl opacity-10 animate-bounce">
-          🍃
+        <div className="absolute top-20 left-10 text-4xl animate-pulse">
+          ♥
         </div>
 
-        <div className="absolute bottom-20 right-20 text-5xl opacity-10 animate-pulse">
-          🍂
+        <div className="absolute top-40 right-20 text-3xl animate-bounce">
+          ♥
         </div>
 
+        <div className="absolute top-[700px] left-[20%] text-4xl">
+          ♥
+        </div>
+
+        <div className="absolute top-[1300px] right-[10%] text-4xl">
+          ♥
+        </div>
+
+        <div className="absolute top-[1900px] left-[15%] text-3xl">
+          ♥
+        </div>
       </div>
 
       {/* HEADER */}
-      <div className="relative z-10 flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10">
+      <div className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10">
 
-        <h1 className="text-3xl md:text-5xl font-serif">
-          {t.title}
+        <h1 className="text-4xl md:text-6xl font-serif">
+          Olivier & Isabelle
         </h1>
 
         <div className="flex gap-3">
 
           <button
             onClick={() => setLang("en")}
-            className="bg-[#f6df75] text-black px-5 py-2 rounded-full font-bold"
+            className="bg-[#f4df7d] text-black px-5 py-2 rounded-full font-bold"
           >
             EN
           </button>
 
           <button
             onClick={() => setLang("fr")}
-            className="bg-[#f6df75] text-black px-5 py-2 rounded-full font-bold"
+            className="bg-[#f4df7d] text-black px-5 py-2 rounded-full font-bold"
           >
             FR
           </button>
@@ -186,10 +184,10 @@ Isabelle & Olivier
       </div>
 
       {/* HERO */}
-      <section className="relative z-10 text-center py-20 px-6">
+      <section className="text-center py-24 px-6">
 
-        <h2 className="text-6xl md:text-8xl font-serif text-[#ffdce9]">
-          {t.subtitle}
+        <h2 className="text-6xl md:text-8xl font-serif text-[#f7d9d9]">
+          {t.title}
         </h2>
 
         <p className="italic text-2xl md:text-4xl mt-10 max-w-5xl mx-auto">
@@ -198,238 +196,188 @@ Isabelle & Olivier
 
       </section>
 
-      {/* PHOTOS */}
-      <section className="relative z-10 flex flex-col gap-8 justify-center items-center px-6 py-10">
+      {/* 2 PHOTOS */}
+      <section className="flex flex-col md:flex-row justify-center items-center gap-8 px-8">
 
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+        <img
+          src="/photo1.jpeg"
+          className="w-[340px] h-[460px] object-cover rounded-[35px] shadow-2xl"
+        />
 
-          <img
-            src="/photo1.jpeg"
-            alt=""
-            className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
-          />
-
-          <img
-            src="/photo4.jpeg"
-            alt=""
-            className="w-full md:w-[650px] h-[420px] object-cover object-center rounded-[40px] shadow-2xl border border-white/10"
-          />
-
-          <img
-            src="/photo3.jpeg"
-            alt=""
-            className="w-[300px] h-[420px] object-cover object-center rounded-[35px] shadow-2xl border border-white/10"
-          />
-
-        </div>
-
-      </section>
-
-      {/* FAMILY */}
-      <section className="relative z-10 px-6 py-20">
-
-        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10 text-center">
-
-          <p className="italic text-3xl md:text-5xl leading-relaxed">
-            {t.family}
-          </p>
-
-        </div>
+        <img
+          src="/photo4.jpeg"
+          className="w-[700px] h-[460px] object-cover rounded-[35px] shadow-2xl"
+        />
 
       </section>
 
       {/* WELCOME */}
-      <section className="relative z-10 px-6 pb-20">
+      <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10 text-center">
 
-        <div className="max-w-5xl mx-auto bg-white/10 rounded-[40px] p-10">
+        <p className="text-2xl leading-[2]">
+          {t.welcome1}
+        </p>
 
-          <h2 className="text-4xl md:text-5xl font-serif mb-10 text-[#ffdce9]">
-            {t.welcomeTitle}
-          </h2>
+        <p className="text-2xl leading-[2] mt-8">
+          {t.welcome2}
+        </p>
 
-          <p className="text-xl leading-loose whitespace-pre-line">
-            {t.welcomeText}
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* EVENT TIMINGS */}
-      <section className="relative z-10 px-6 pb-20">
-
-        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
-
-          <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
-            {t.timings}
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl mb-4">• --------</h3>
-              <p className="text-2xl">--:--</p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl mb-4">• --------</h3>
-              <p className="text-2xl">--:--</p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl mb-4">• --------</h3>
-              <p className="text-2xl">--:--</p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <h3 className="text-3xl mb-4">• --------</h3>
-              <p className="text-2xl">--:--</p>
-            </div>
-
-          </div>
-
-        </div>
+        <p className="text-2xl leading-[2] mt-8">
+          {t.welcome3}
+        </p>
 
       </section>
 
-      {/* MENU */}
-      <section className="relative z-10 px-6 pb-20">
+      {/* FAMILY */}
+      <section className="max-w-6xl mx-auto mt-16 bg-white/10 rounded-[40px] p-10 text-center">
 
-        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
-
-          <h2 className="text-5xl font-serif text-center text-[#ffdce9] mb-14">
-            {t.menu}
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <p className="text-2xl leading-loose">
-                • -------- <br />
-                • -------- <br />
-                • --------
-              </p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <p className="text-2xl leading-loose">
-                • -------- <br />
-                • -------- <br />
-                • --------
-              </p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <p className="text-2xl leading-loose">
-                • -------- <br />
-                • -------- <br />
-                • --------
-              </p>
-            </div>
-
-            <div className="bg-white/10 rounded-[30px] p-8">
-              <p className="text-2xl leading-loose">
-                • -------- <br />
-                • -------- <br />
-                • --------
-              </p>
-            </div>
-
-          </div>
-
-        </div>
+        <p className="italic text-3xl md:text-5xl leading-[2]">
+          {t.family}
+        </p>
 
       </section>
 
-      {/* PARKING + ROUTE */}
-      <section className="relative z-10 grid md:grid-cols-2 gap-8 px-6 pb-20">
+      {/* 4 BOXES */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
 
-        <div className="bg-white/10 rounded-[40px] p-10">
+        {/* PARKING */}
+        <div className="bg-white/10 rounded-[35px] p-10">
 
-          <h2 className="text-4xl font-serif text-[#ffdce9] mb-6">
+          <h3 className="text-5xl font-serif text-pink-200">
             {t.parking}
-          </h2>
+          </h3>
 
-          <p className="text-xl leading-relaxed">
+          <p className="mt-6 text-2xl leading-[1.8]">
             {t.parkingText}
           </p>
 
         </div>
 
-        <div className="bg-white/10 rounded-[40px] p-10">
+        {/* ROUTE */}
+        <div className="bg-white/10 rounded-[35px] p-10">
 
-          <h2 className="text-4xl font-serif text-[#ffdce9] mb-6">
+          <h3 className="text-5xl font-serif text-pink-200">
             {t.route}
-          </h2>
+          </h3>
 
-          <p className="text-xl leading-relaxed mb-8">
+          <p className="mt-6 text-2xl leading-[1.8]">
             {t.routeText}
           </p>
 
           <a
             href="https://maps.app.goo.gl/pWKbdsW7vnGzegLG8"
             target="_blank"
-            className="inline-block bg-[#9de7d6] text-black px-10 py-5 rounded-full text-2xl font-bold"
           >
-            {t.routeButton}
+            <button className="mt-8 bg-[#a8f0dc] text-black font-bold px-10 py-5 rounded-full text-2xl">
+              {t.routeButton}
+            </button>
           </a>
+
+        </div>
+
+        {/* TIMINGS */}
+        <div className="bg-white/10 rounded-[35px] p-10">
+
+          <h3 className="text-5xl font-serif text-pink-200">
+            {t.timings}
+          </h3>
+
+          <div className="mt-8 space-y-5 text-2xl">
+            <p>{t.t1}</p>
+            <p>{t.t2}</p>
+            <p>{t.t3}</p>
+            <p>{t.t4}</p>
+          </div>
+
+        </div>
+
+        {/* ADDRESS */}
+        <div className="bg-white/10 rounded-[35px] p-10">
+
+          <h3 className="text-5xl font-serif text-pink-200">
+            {t.address}
+          </h3>
+
+          <p className="mt-6 text-2xl leading-[1.8]">
+            {t.addressText}
+          </p>
+
+          <p className="mt-6 text-xl text-pink-100">
+            Salle des fêtes — France
+          </p>
 
         </div>
 
       </section>
 
-      {/* GUEST MESSAGES */}
-      <section className="relative z-10 px-6 pb-20">
+      {/* RSVP */}
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10">
 
-        <div className="max-w-6xl mx-auto bg-white/10 rounded-[40px] p-10">
+        <h2 className="text-center text-6xl font-serif">
+          {t.rsvp}
+        </h2>
 
-          <h2 className="text-5xl font-serif text-center mb-10">
-            {t.guest}
-          </h2>
+        <div className="mt-10 space-y-6">
 
-          <textarea
-            placeholder={t.guestPlaceholder}
-            className="w-full h-[250px] rounded-[30px] bg-white/10 border border-white/20 p-8 text-2xl outline-none"
+          <input
+            placeholder={t.name}
+            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
           />
 
-          <div className="flex flex-col md:flex-row gap-6 mt-8">
+          <input
+            placeholder={t.email}
+            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
+          />
 
-            <label className="bg-[#f7cfe0] text-black px-10 py-5 rounded-full text-2xl font-bold cursor-pointer text-center">
+          <textarea
+            placeholder={t.message}
+            rows={6}
+            className="w-full p-6 rounded-[25px] bg-white/10 text-2xl outline-none"
+          />
 
-              📸 {t.upload}
+          <button
+            onClick={() => alert("RSVP Sent 💌")}
+            className="w-full bg-[#f4df7d] text-black text-3xl font-bold py-5 rounded-full"
+          >
+            {t.send}
+          </button>
 
-              <input
-                type="file"
-                multiple
-                className="hidden"
-              />
+        </div>
 
-            </label>
+      </section>
 
-            <button
-              onClick={() =>
-                alert(
-                  lang === "fr"
-                    ? "Merci pour votre magnifique message 💕"
-                    : "Thank you for your beautiful message 💕"
-                )
-              }
-              className="bg-[#f7cfe0] text-black px-12 py-5 rounded-full text-2xl font-bold"
-            >
-              {lang === "fr" ? "Publier" : "Post Message"}
-            </button>
+      {/* MEMORIES */}
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
 
-          </div>
+        <h2 className="text-6xl font-serif">
+          {t.memories}
+        </h2>
+
+        <p className="mt-8 text-2xl leading-[1.8]">
+          {t.memoriesText}
+        </p>
+
+        <input
+          type="file"
+          multiple
+          className="mt-10 text-2xl"
+        />
+
+        <div>
+
+          <button className="mt-8 bg-pink-200 text-black px-10 py-5 rounded-full text-2xl font-bold">
+            {t.upload}
+          </button>
 
         </div>
 
       </section>
 
       {/* THANK YOU */}
-      <section className="relative z-10 text-center px-6 pb-24">
+      <section className="text-center py-28 px-6">
 
-        <p className="italic text-3xl md:text-5xl max-w-5xl mx-auto leading-relaxed">
-          {t.thanks}
+        <p className="text-3xl md:text-5xl italic max-w-5xl mx-auto leading-[2]">
+          {t.thank}
         </p>
 
       </section>
