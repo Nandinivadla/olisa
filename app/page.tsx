@@ -36,17 +36,10 @@ export default function Home() {
 
       routeButton: "Track Route",
 
-      timings: "Event Timings",
-
-      t1: "Welcome Drinks — --:--",
-      t2: "Ceremony — --:--",
-      t3: "Dinner & Celebration — --:--",
-      t4: "Closing Dance — --:--",
-
       address: "Venue Address",
 
       addressText:
-        "The celebration venue address and route are available here for all guests.",
+        "Salle des fêtes — France",
 
       rsvp: "RSVP",
 
@@ -97,17 +90,10 @@ export default function Home() {
 
       routeButton: "Voir La Route",
 
-      timings: "Horaires",
-
-      t1: "Accueil — --:--",
-      t2: "Cérémonie — --:--",
-      t3: "Dîner & Célébration — --:--",
-      t4: "Dernière Danse — --:--",
-
       address: "Adresse",
 
       addressText:
-        "L’adresse et l’itinéraire du lieu de célébration sont disponibles ici.",
+        "Salle des fêtes — France",
 
       rsvp: "RSVP",
 
@@ -238,6 +224,7 @@ export default function Home() {
       {/* 4 BOXES */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
 
+        {/* PARKING */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -250,6 +237,7 @@ export default function Home() {
 
         </div>
 
+        {/* ROUTE */}
         <div className="bg-white/10 rounded-[35px] p-10">
 
           <h3 className="text-5xl font-serif text-pink-200">
@@ -271,20 +259,95 @@ export default function Home() {
 
         </div>
 
-        <div className="bg-white/10 rounded-[35px] p-10">
+      </section>
 
-          <h3 className="text-5xl font-serif text-pink-200">
-            {t.timings}
-          </h3>
+      {/* EVENING TIMINGS */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
 
-          <div className="mt-8 space-y-5 text-2xl">
-            <p>{t.t1}</p>
-            <p>{t.t2}</p>
-            <p>{t.t3}</p>
-            <p>{t.t4}</p>
+        <h2 className="text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
+          {lang === "fr" ? "Programme de la Soirée" : "Evening Celebration"}
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Accueil" : "Welcome"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              --:--
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Accueil des invités, cocktails et moments chaleureux."
+                : "Guest arrival, welcome drinks and warm moments together."}
+            </p>
+
+          </div>
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Cérémonie" : "Ceremony"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              --:--
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Un moment rempli d’amour et d’émotions."
+                : "A beautiful emotional celebration filled with love."}
+            </p>
+
+          </div>
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Dîner & Musique" : "Dinner & Music"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              --:--
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Un dîner convivial accompagné de musique."
+                : "A lovely dinner evening with music and laughter."}
+            </p>
+
+          </div>
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Souvenirs & Photos" : "Memories & Photos"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              --:--
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Partagez vos souvenirs et vos photos avec nous."
+                : "Share your favorite memories and beautiful photos."}
+            </p>
+
           </div>
 
         </div>
+
+      </section>
+
+      {/* ADDRESS */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
 
         <div className="bg-white/10 rounded-[35px] p-10">
 
@@ -301,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* RSVP */}
-      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10">
+      <section className="max-w-6xl mx-auto mt-10 bg-white/10 rounded-[40px] p-10">
 
         <h2 className="text-center text-6xl font-serif">
           {t.rsvp}
