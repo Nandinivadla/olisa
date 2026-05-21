@@ -611,17 +611,9 @@ export default function Home() {
         </p>
 
       </section>
-<div className="text-center py-12 mt-24 border-t border-white/10">
-
-  <p className="text-[#f3cfe0] text-lg md:text-2xl tracking-wide">
-    © 2026 Olivier & Isabelle — 25 Years Of Love ✨
-  </p>
-
-  <p className="text-[#cbb8bf] text-sm md:text-lg mt-4 italic">
-    Made with love for a beautiful celebration 💌
-  </p>
-
-</div>
+<p className="text-center text-[#9f8b92] text-sm py-6">
+  © nandukrish ✨
+</p>
     </main>
   );
 }
