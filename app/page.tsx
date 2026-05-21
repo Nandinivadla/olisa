@@ -1,297 +1,229 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
-  const [language, setLanguage] = useState("fr");
-  const [currentImage, setCurrentImage] = useState(0);
+  const [lang, setLang] = useState("en");
 
-  const images = [
-    "/photo1.jpeg",
-    "/photo2.jpeg",
-    "/photo3.jpeg",
-    "/photo4.jpeg",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const content = {
-    fr: {
-      title: "Olivier & Isabelle",
-
-      emotional:
-        "25 ans d’amour, de famille et de souvenirs précieux. À travers chaque saison de la vie, vous avez choisi l’amour encore et encore. Auriane Clochard, Leïla Clochard et Nathanaël Clochard sont le plus beau reflet de cette histoire.",
-
-      menu: "Menu de la soirée",
-
-      drinks: "Cocktails • Champagne • Vin",
-      dinner: "Entrée • Plat • Spécialités",
-      dessert: "Gâteau • Desserts • Douceurs",
-      party: "Musique • Danse • Souvenirs",
-
-      parking: "Parking disponible",
-      parkingText:
-        "Des places privées sont disponibles près du lieu de réception.",
-
-      route: "Route vers la cérémonie",
-
-      guest: "Messages des invités",
-
-      placeholder:
-        "Écrivez un beau message pour Olivier & Isabelle...",
-
-      upload: "Partagez vos souvenirs",
-      uploadText:
-        "Ajoutez vos photos et souvenirs précieux de cette magnifique soirée ✨",
-
-      thanks:
-        "Merci du fond du cœur pour votre présence, votre amour et vos précieux souvenirs.",
-
-      location: "Salle des Fêtes • Paris • France",
-    },
-
+  const text = {
     en: {
-      title: "Olivier & Isabelle",
-
+      title: "25 Years Of Love",
+      quote:
+        "Years passed, but the way we look at each other never changed.",
       emotional:
-        "25 years of love, family and beautiful memories. Through every season of life, you chose each other again and again. Auriane Clochard, Leïla Clochard and Nathanaël Clochard are the most beautiful reflection of your story.",
-
+        "Through every season of life, Isabelle and Olivier chose love, family, warmth and each other.",
       menu: "Celebration Menu",
-
-      drinks: "Cocktails • Champagne • Wine",
-      dinner: "Starter • Dinner • Special Dishes",
-      dessert: "Cake • Desserts • Sweet Table",
-      party: "Music • Dance • Memories",
-
       parking: "Parking Available",
       parkingText:
-        "Private parking spaces are available near the venue.",
-
+        "Private parking spaces are available for all guests near the venue.",
       route: "Ceremony Route",
-
-      guest: "Guest Messages",
-
-      placeholder:
-        "Write a beautiful message for Olivier & Isabelle...",
-
-      upload: "Share Your Memories",
-      uploadText:
-        "Upload your beautiful memories and pictures from this special celebration ✨",
-
+      routeText: "Track the route directly to the celebration venue.",
+      memories: "Share Your Memories",
+      upload:
+        "Upload your beautiful photos and memories from this special evening.",
+      messages: "Guest Messages",
       thanks:
-        "Thank you from the bottom of our hearts for your love, presence and precious memories.",
+        "Thank you for celebrating 25 beautiful years of love with us.",
+    },
 
-      location: "Celebration Hall • Paris • France",
+    fr: {
+      title: "25 Ans D’amour",
+      quote:
+        "Les années ont passé, mais notre regard l’un pour l’autre n’a jamais changé.",
+      emotional:
+        "À travers chaque saison de la vie, Isabelle et Olivier ont choisi l’amour, la famille et la tendresse.",
+      menu: "Menu De La Soirée",
+      parking: "Parking Disponible",
+      parkingText:
+        "Des places de parking privées sont disponibles pour tous les invités.",
+      route: "Itinéraire De La Cérémonie",
+      routeText:
+        "Suivez l’itinéraire directement vers le lieu de célébration.",
+      memories: "Partagez Vos Souvenirs",
+      upload:
+        "Ajoutez vos magnifiques photos et souvenirs de cette soirée spéciale.",
+      messages: "Messages Des Invités",
+      thanks:
+        "Merci de célébrer avec nous ces 25 merveilleuses années d’amour.",
     },
   };
 
-  const t = content[language as "fr" | "en"];
+  const t = text[lang as "en" | "fr"];
 
   return (
-    <main className="bg-[#241b23] text-[#fff5ef] min-h-screen overflow-hidden relative">
+    <main className="min-h-screen bg-[#241717] text-[#fff4ef]">
 
-      {/* floating hearts */}
-      <div className="absolute inset-0 opacity-20 overflow-hidden">
-        {[...Array(25)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-pink-200 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${10 + Math.random() * 30}px`,
-            }}
-          >
-            ♥
-          </div>
-        ))}
-      </div>
-
-      {/* top bar */}
-      <div className="flex justify-between items-center px-6 py-6 border-b border-white/10 relative z-10">
-
-        <h1 className="text-3xl md:text-5xl font-serif">
-          {t.title}
+      {/* HEADER */}
+      <div className="flex justify-between items-center px-8 py-6 border-b border-white/10">
+        <h1 className="text-5xl font-serif">
+          Olivier & Isabelle
         </h1>
 
-        <button
-          onClick={() =>
-            setLanguage(language === "fr" ? "en" : "fr")
-          }
-          className="bg-[#f5df77] text-black px-6 py-3 rounded-full font-bold"
-        >
-          {language === "fr" ? "English" : "Français"}
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => setLang("en")}
+            className="bg-[#f5df7b] text-black px-6 py-3 rounded-full font-bold"
+          >
+            EN
+          </button>
 
+          <button
+            onClick={() => setLang("fr")}
+            className="bg-[#f5df7b] text-black px-6 py-3 rounded-full font-bold"
+          >
+            FR
+          </button>
+        </div>
       </div>
 
-      {/* slideshow */}
-      <section className="py-20 px-6 relative z-10">
+      {/* HERO */}
+      <section className="text-center py-24 px-6">
+        <h2 className="text-8xl font-serif mb-8">
+          {t.title}
+        </h2>
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-
-          <div>
-
-            <h2 className="text-5xl md:text-7xl font-serif leading-tight mb-10 text-pink-100">
-              {t.title}
-            </h2>
-
-            <p className="text-2xl leading-relaxed italic text-[#ffe8df]">
-              {t.emotional}
-            </p>
-
-          </div>
-
-          <div className="flex justify-center">
-
-            <img
-              src={images[currentImage]}
-              alt=""
-              className="w-[350px] h-[520px] object-cover rounded-[40px] shadow-2xl transition-all duration-700"
-            />
-
-          </div>
-
-        </div>
-
+        <p className="text-3xl italic max-w-5xl mx-auto">
+          “{t.quote}”
+        </p>
       </section>
 
-      {/* menu boxes */}
-      <section className="py-20 px-6 relative z-10">
+      {/* MAIN PHOTO */}
+      <section className="flex justify-center px-6">
+        <img
+          src="/photo1.jpeg"
+          className="rounded-[40px] w-[900px] max-w-full"
+        />
+      </section>
 
-        <h2 className="text-center text-5xl md:text-6xl font-serif mb-16 text-pink-100">
+      {/* EMOTIONAL SECTION */}
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-16 text-center">
+        <h2 className="text-6xl font-serif text-pink-200 mb-10">
+          Auriane Clochard • Leïla Clochard • Nathanaël Clochard
+        </h2>
+
+        <p className="text-3xl italic leading-loose">
+          {t.emotional}
+        </p>
+      </section>
+
+      {/* MENU */}
+      <section className="max-w-7xl mx-auto mt-24 px-6">
+        <h2 className="text-6xl text-center font-serif text-pink-200 mb-14">
           {t.menu}
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-8">
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-            <h3 className="text-3xl mb-6 font-serif">🥂 Drinks</h3>
-            <p className="text-xl">{t.drinks}</p>
+          <div className="bg-white/10 p-10 rounded-[35px]">
+            <h3 className="text-3xl mb-6">Entrées</h3>
+            <p>•</p>
+            <p>•</p>
+            <p>•</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-            <h3 className="text-3xl mb-6 font-serif">🍽 Dinner</h3>
-            <p className="text-xl">{t.dinner}</p>
+          <div className="bg-white/10 p-10 rounded-[35px]">
+            <h3 className="text-3xl mb-6">Main Course</h3>
+            <p>•</p>
+            <p>•</p>
+            <p>•</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-            <h3 className="text-3xl mb-6 font-serif">🍰 Desserts</h3>
-            <p className="text-xl">{t.dessert}</p>
+          <div className="bg-white/10 p-10 rounded-[35px]">
+            <h3 className="text-3xl mb-6">Desserts</h3>
+            <p>•</p>
+            <p>•</p>
+            <p>•</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-            <h3 className="text-3xl mb-6 font-serif">🎶 Celebration</h3>
-            <p className="text-xl">{t.party}</p>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* parking and route */}
-      <section className="py-20 px-6 relative z-10">
-
-        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-
-            <h2 className="text-4xl font-serif mb-6 text-pink-100">
-              {t.parking}
-            </h2>
-
-            <p className="text-xl leading-relaxed">
-              {t.parkingText}
-            </p>
-
-            <p className="mt-6 text-pink-200 text-lg">
-              📍 {t.location}
-            </p>
-
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-lg rounded-[35px] p-10">
-
-            <h2 className="text-4xl font-serif mb-6 text-pink-100">
-              {t.route}
-            </h2>
-
-            <a
-              href="https://maps.google.com"
-              target="_blank"
-              className="inline-block mt-6 bg-[#93e2cf] text-black px-8 py-4 rounded-full font-bold text-xl"
-            >
-              Track Route
-            </a>
-
+          <div className="bg-white/10 p-10 rounded-[35px]">
+            <h3 className="text-3xl mb-6">Drinks</h3>
+            <p>•</p>
+            <p>•</p>
+            <p>•</p>
           </div>
 
         </div>
-
       </section>
 
-      {/* guest messages */}
-      <section className="py-20 px-6 relative z-10">
+      {/* LOCATION */}
+      <section className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto mt-24 px-6">
 
-        <div className="max-w-5xl mx-auto bg-white/10 backdrop-blur-lg rounded-[40px] p-12">
-
-          <h2 className="text-center text-5xl font-serif mb-10">
-            {t.guest}
+        <div className="bg-white/10 rounded-[35px] p-12">
+          <h2 className="text-5xl text-pink-200 font-serif mb-8">
+            {t.parking}
           </h2>
 
-          <textarea
-            placeholder={t.placeholder}
-            className="w-full h-52 rounded-[30px] bg-[#ffffff10] border border-white/20 p-8 text-xl text-white"
-          />
-
-          <button className="mt-8 bg-[#f5df77] text-black px-10 py-4 rounded-full font-bold text-xl">
-            Send
-          </button>
-
-        </div>
-
-      </section>
-
-      {/* upload memories */}
-      <section className="py-20 px-6 relative z-10">
-
-        <div className="max-w-5xl mx-auto bg-[#2c1f2f] rounded-[40px] p-12 text-center">
-
-          <h2 className="text-5xl font-serif mb-8">
-            {t.upload}
-          </h2>
-
-          <input
-            type="file"
-            multiple
-            className="bg-white text-black p-4 rounded-xl w-full"
-          />
-
-          <p className="mt-8 text-2xl text-[#ffe8df]">
-            {t.uploadText}
+          <p className="text-2xl leading-loose">
+            {t.parkingText}
           </p>
 
+          <p className="mt-6 text-xl">
+            📍 Domaine Des Roses, Paris
+          </p>
+        </div>
+
+        <div className="bg-white/10 rounded-[35px] p-12">
+          <h2 className="text-5xl text-pink-200 font-serif mb-8">
+            {t.route}
+          </h2>
+
+          <p className="text-2xl leading-loose mb-10">
+            {t.routeText}
+          </p>
+
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            className="bg-[#9ae8d5] text-black px-10 py-5 rounded-full text-2xl font-bold"
+          >
+            Track Route
+          </a>
         </div>
 
       </section>
 
-      {/* thank you */}
-      <section className="py-20 px-6 relative z-10">
+      {/* GUEST MESSAGES */}
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-16">
 
-        <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-6xl font-serif text-center mb-12">
+          {t.messages}
+        </h2>
 
-          <h2 className="text-4xl md:text-6xl font-serif italic leading-relaxed text-pink-100">
-            {t.thanks}
-          </h2>
+        <textarea
+          placeholder="Write your beautiful message..."
+          className="w-full h-[250px] bg-white/10 rounded-[30px] p-8 text-2xl"
+        />
 
-        </div>
+        <button className="mt-10 bg-pink-200 text-black px-10 py-5 rounded-full text-2xl font-bold">
+          Post Message
+        </button>
 
+      </section>
+
+      {/* UPLOAD PHOTOS */}
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-16 text-center">
+
+        <h2 className="text-6xl font-serif mb-10">
+          {t.memories}
+        </h2>
+
+        <p className="text-2xl mb-10">
+          {t.upload}
+        </p>
+
+        <input
+          type="file"
+          multiple
+          className="text-2xl"
+        />
+
+      </section>
+
+      {/* THANK YOU */}
+      <section className="text-center py-24 px-6">
+        <p className="text-4xl italic max-w-5xl mx-auto leading-loose">
+          {t.thanks}
+        </p>
       </section>
 
     </main>
