@@ -311,18 +311,30 @@ export default function Home() {
       {/* 4 BOXES */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
 
-        {/* PARKING */}
-        <div className="bg-white/10 rounded-[35px] p-10">
+       {/* PARKING */}
 
-          <h3 className="text-5xl font-serif text-pink-200">
-            {t.parking}
-          </h3>
+<div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
-          <p className="mt-6 text-2xl leading-[1.8]">
-            {t.parkingText}
-          </p>
+  <h3 className="text-[#f3cfe0] text-5xl md:text-7xl font-serif mb-8 leading-tight">
+    {t.parking}
+  </h3>
 
-        </div>
+  <p className="text-white text-2xl md:text-4xl leading-relaxed mb-6">
+    Free parking spaces are available for all guests near the venue.
+  </p>
+
+  {/* PARKING LINK */}
+
+  <a
+    href="https://maps.app.goo.gl/EGXTYeDpkHr17BXNA"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block mt-6 text-[#a8f0dc] text-2xl md:text-3xl underline underline-offset-4 hover:text-white transition"
+  >
+    View Parking Location
+  </a>
+
+</div>
 
         {/* ROUTE */}
         <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
