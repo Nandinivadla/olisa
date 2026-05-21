@@ -180,23 +180,31 @@ export default function Home() {
 
       </section>
 
-     {/* 2 PHOTOS */}
+     {/* PHOTOS */}
 
 <section className="max-w-7xl mx-auto px-6 py-20">
 
-  <div className="flex flex-col md:flex-row justify-center items-center gap-10">
+  <div className="grid md:grid-cols-2 gap-10 items-center">
 
-    <img
-      src="/photo1.jpeg"
-      alt=""
-      className="w-[380px] h-[520px] object-cover rounded-[40px] shadow-2xl"
-    />
+    {/* PHOTO 1 */}
 
-    <img
-      src="/photo3.jpeg"
-      alt=""
-      className="w-[520px] h-[520px] object-cover rounded-[40px] shadow-2xl"
-    />
+    <div className="overflow-hidden rounded-[40px] shadow-2xl h-[650px]">
+      <img
+        src="/photo1.jpeg"
+        alt="Olivier and Isabelle"
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+    {/* PHOTO 3 */}
+
+    <div className="overflow-hidden rounded-[40px] shadow-2xl h-[650px]">
+      <img
+        src="/photo3.jpeg"
+        alt="Olivier and Isabelle"
+        className="w-full h-full object-cover"
+      />
+    </div>
 
   </div>
 
