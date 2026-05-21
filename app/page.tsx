@@ -186,16 +186,14 @@ export default function Home() {
 
   <div className="flex flex-col md:flex-row justify-center items-center gap-10">
 
-    {/* PHOTO 1 */}
     <img
-      src="/photo1"
+      src="/photo1.jpeg"
       alt=""
       className="w-[380px] h-[520px] object-cover rounded-[40px] shadow-2xl"
     />
 
-    {/* PHOTO 3 */}
     <img
-      src="/photo3"
+      src="/photo3.jpeg"
       alt=""
       className="w-[520px] h-[520px] object-cover rounded-[40px] shadow-2xl"
     />
