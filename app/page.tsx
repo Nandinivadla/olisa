@@ -220,7 +220,79 @@ export default function Home() {
         </p>
 
       </section>
+{/* MENU */}
 
+<section className="max-w-6xl mx-auto px-6 py-20">
+
+  <h2 className="text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
+    {lang === "fr" ? "Menu De La Soirée" : "Evening Menu"}
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    {/* STARTERS */}
+    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+        {lang === "fr" ? "Entrées" : "Starters"}
+      </h3>
+
+      <div className="space-y-4 text-xl">
+        <p>• ----------</p>
+        <p>• ----------</p>
+        <p>• ----------</p>
+      </div>
+
+    </div>
+
+    {/* MAIN COURSE */}
+    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+        {lang === "fr" ? "Plat Principal" : "Main Course"}
+      </h3>
+
+      <div className="space-y-4 text-xl">
+        <p>• ----------</p>
+        <p>• ----------</p>
+        <p>• ----------</p>
+      </div>
+
+    </div>
+
+    {/* DESSERTS */}
+    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+        {lang === "fr" ? "Desserts" : "Desserts"}
+      </h3>
+
+      <div className="space-y-4 text-xl">
+        <p>• ----------</p>
+        <p>• ----------</p>
+        <p>• ----------</p>
+      </div>
+
+    </div>
+
+    {/* DRINKS */}
+    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+        {lang === "fr" ? "Boissons" : "Drinks"}
+      </h3>
+
+      <div className="space-y-4 text-xl">
+        <p>• ----------</p>
+        <p>• ----------</p>
+        <p>• ----------</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
       {/* 4 BOXES */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
 
