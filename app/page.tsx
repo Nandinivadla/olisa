@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function AnniversaryPage() {
-  const eventDate = new Date("2026-08-01T00:00:00");
+  const eventDate = new Date("2026-05-23T00:00:00");
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -15,7 +15,7 @@ export default function AnniversaryPage() {
   const [musicPlaying, setMusicPlaying] = useState(false);
 
   useEffect(() => {
-    document.title = "Isabelle & Olivier";
+    document.title = "Olivier & Isabelle";
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -53,7 +53,7 @@ export default function AnniversaryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050807] text-white overflow-hidden relative">
+    <main className="min-h-screen bg-[#040706] text-white overflow-hidden relative">
 
       {/* MUSIC */}
       <audio id="bgmusic" loop>
@@ -61,13 +61,13 @@ export default function AnniversaryPage() {
       </audio>
 
       {/* BACKGROUND GLOWS */}
-      <div className="absolute top-[-200px] left-[-150px] w-[800px] h-[800px] bg-[#35543a]/25 blur-[180px] rounded-full"></div>
+      <div className="absolute top-[-250px] left-[-200px] w-[900px] h-[900px] bg-[#35543a]/30 blur-[200px] rounded-full"></div>
 
-      <div className="absolute bottom-[-200px] right-[-150px] w-[800px] h-[800px] bg-[#220814]/40 blur-[200px] rounded-full"></div>
+      <div className="absolute bottom-[-250px] right-[-200px] w-[900px] h-[900px] bg-[#220814]/40 blur-[220px] rounded-full"></div>
 
       {/* STARS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(120)].map((_, i) => (
+        {[...Array(140)].map((_, i) => (
           <div
             key={i}
             className="absolute bg-white rounded-full animate-pulse"
@@ -82,7 +82,7 @@ export default function AnniversaryPage() {
         ))}
       </div>
 
-      {/* HEARTS */}
+      {/* FLOATING HEARTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
 
         {[...Array(45)].map((_, i) => (
@@ -92,7 +92,7 @@ export default function AnniversaryPage() {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              fontSize: `${14 + Math.random() * 28}px`,
+              fontSize: `${14 + Math.random() * 30}px`,
               opacity: 0.25,
               animationDuration: `${3 + Math.random() * 5}s`,
             }}
@@ -109,7 +109,7 @@ export default function AnniversaryPage() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
           <h1 className="text-2xl md:text-3xl font-serif text-[#f7ecef]">
-            Isabelle & Olivier
+            Olivier & Isabelle
           </h1>
 
           <button
@@ -131,7 +131,7 @@ export default function AnniversaryPage() {
         </p>
 
         <h1 className="text-6xl md:text-8xl font-serif text-[#f7ecef] leading-tight">
-          Isabelle <span className="text-[#5f7f4f]">&</span> Olivier
+          Olivier <span className="text-[#5f7f4f]">&</span> Isabelle
         </h1>
 
         {/* IMAGE */}
@@ -141,7 +141,7 @@ export default function AnniversaryPage() {
 
           <img
             src="/togetherus.jpeg"
-            alt="Isabelle and Olivier"
+            alt="Olivier and Isabelle"
             className="relative w-[340px] md:w-[540px] rounded-[40px] border border-[#d8c8b8]/20 shadow-[0_0_100px_rgba(255,255,255,0.08)] object-cover sepia-[28%]"
           />
 
@@ -150,8 +150,7 @@ export default function AnniversaryPage() {
         <div className="w-40 h-[3px] bg-[#5f7f4f] my-10 rounded-full"></div>
 
         <p className="max-w-3xl text-xl md:text-3xl italic text-[#f7ecef] leading-relaxed">
-          “A lifetime of love,
-          laughter and beautiful memories together.”
+          “A lifetime of love, laughter and unforgettable memories.”
         </p>
 
       </section>
@@ -236,7 +235,7 @@ export default function AnniversaryPage() {
                 Celebration
               </h3>
               <p className="text-[#d9d7cf]">
-                Music • Dancing • Memories Together
+                Music • Dancing • Precious Memories
               </p>
             </div>
 
@@ -246,12 +245,13 @@ export default function AnniversaryPage() {
 
       </section>
 
-      {/* INFORMATION BOXES */}
+      {/* INFORMATION */}
       <section className="relative z-10 py-24 px-6">
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
 
           <div className="bg-[#220814]/75 rounded-[35px] p-10 border border-[#35543a]">
+
             <h3 className="text-3xl font-serif text-[#5f7f4f] mb-6">
               Parking Available
             </h3>
@@ -259,15 +259,17 @@ export default function AnniversaryPage() {
             <p className="text-[#d9d7cf] text-lg leading-8">
               Private parking spaces will be available for all guests near the venue.
             </p>
+
           </div>
 
           <div className="bg-[#220814]/75 rounded-[35px] p-10 border border-[#35543a]">
+
             <h3 className="text-3xl font-serif text-[#5f7f4f] mb-6">
               Ceremony Location
             </h3>
 
             <p className="text-[#d9d7cf] text-lg leading-8 mb-6">
-              Track the route directly to the wedding anniversary celebration venue.
+              Track the route directly to the anniversary celebration venue.
             </p>
 
             <a
@@ -277,13 +279,14 @@ export default function AnniversaryPage() {
             >
               Track Route
             </a>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* FAMILY MESSAGE */}
+      {/* FAMILY */}
       <section className="relative z-10 py-28 px-6">
 
         <div className="max-w-5xl mx-auto text-center bg-[#220814]/75 border border-[#35543a] rounded-[45px] p-14 backdrop-blur-xl">
@@ -293,10 +296,10 @@ export default function AnniversaryPage() {
           </h2>
 
           <p className="text-xl md:text-2xl leading-10 text-[#d9d7cf] italic">
-            “With immense pride and love,
-            Isabelle and Olivier celebrate not only
-            their journey together,
-            but also the beautiful family they built.”
+            “With immense pride and unconditional love,
+            Olivier and Isabelle celebrate not only
+            their beautiful journey together,
+            but also the incredible family they built.”
           </p>
 
           <div className="mt-12 space-y-4 text-2xl text-[#f7ecef]">
@@ -363,7 +366,7 @@ export default function AnniversaryPage() {
       <footer className="relative z-10 py-20 text-center bg-black/20 text-white">
 
         <h2 className="text-5xl font-serif mb-6 text-[#f7ecef]">
-          Isabelle & Olivier
+          Olivier & Isabelle
         </h2>
 
         <p className="text-lg opacity-90 text-[#d9d7cf]">
@@ -371,7 +374,7 @@ export default function AnniversaryPage() {
         </p>
 
         <p className="mt-8 text-sm opacity-70">
-          Anniversary Celebration • 2026
+          Wedding Anniversary • 23 May 2026
         </p>
 
       </footer>
