@@ -231,96 +231,76 @@ export default function Home() {
         </p>
 
       </section>
-{/* MENU */}
+
+       {/* PARKING + ROUTE */}
 
 <section className="max-w-6xl mx-auto px-6 py-20">
 
-  <h2 className="text-5xltext-3xl md:text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
-    {lang === "fr" ? "Menu De La Soirée" : "Evening Menu"}
-  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {/* PARKING */}
 
-    {/* STARTERS */}
-    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+    <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
-      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
-        {lang === "fr" ? "Entrées" : "Starters"}
+      <h3 className="text-[#f3cfe0] text-4xl md:text-6xl font-serif mb-8">
+        {t.parking}
       </h3>
 
-      <div className="space-y-4 text-xl">
-        <p>• ----------</p>
-        <p>• ----------</p>
-        <p>• ----------</p>
-      </div>
+      <p className="text-white text-xl md:text-2xl leading-relaxed mb-6">
+        Free parking spaces are available for all guests near the venue.
+      </p>
+
+      <a
+        href="https://maps.app.goo.gl/EGXTYeDpkHr17BXNA"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-6 text-[#a8f0dc] text-xl md:text-2xl underline underline-offset-4 hover:text-white transition"
+      >
+        View Parking Location
+      </a>
 
     </div>
-  
-       {/* PARKING */}
 
-<div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
+    {/* ROUTE */}
 
-  <h3 className="text-[#f3cfe0] text-5xl md:text-7xl font-serif mb-8 leading-tight">
-    {t.parking}
-  </h3>
+    <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
-  <p className="text-white text-2xl md:text-4xl leading-relaxed mb-6">
-    Free parking spaces are available for all guests near the venue.
-  </p>
+      <h3 className="text-[#f3cfe0] text-4xl md:text-6xl font-serif mb-8">
+        {t.route}
+      </h3>
 
-  {/* PARKING LINK */}
+      <p className="text-white text-xl md:text-2xl leading-relaxed mb-6">
+        {t.routeText}
+      </p>
 
-  <a
-    href="https://maps.app.goo.gl/EGXTYeDpkHr17BXNA"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block mt-6 text-[#a8f0dc] text-2xl md:text-3xl underline underline-offset-4 hover:text-white transition"
-  >
-    View Parking Location
-  </a>
+      <div className="bg-white/10 rounded-[30px] p-6 mb-8 border border-white/10">
 
-</div>
+        <p className="text-[#f7e7ef] text-lg md:text-2xl font-semibold leading-relaxed">
+          Lycée Briacé, Internat fille,
+          <br />
+          Le Landreau 44430
+        </p>
 
-        {/* ROUTE */}
-        <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
+      </div>
 
-  <h3 className="text-[#f3cfe0] text-5xl md:text-7xl font-serif mb-8 leading-tight">
-    {t.route}
-  </h3>
+      <a
+        href="https://maps.app.goo.gl/pWKbdsW7vnGzegLG8"
+        target="_blank"
+      >
 
-  <p className="text-white text-2xl md:text-4xl leading-relaxed mb-6">
-    {t.routeText}
-  </p>
+        <button className="bg-[#a9ead7] hover:bg-[#c1f5e6] transition duration-300 text-black text-xl md:text-2xl font-bold px-10 py-5 rounded-full shadow-xl w-full md:w-auto">
 
-  {/* ADDRESS */}
+          {t.routeButton}
 
-  <div className="bg-white/10 rounded-[30px] p-6 mb-8 border border-white/10">
+        </button>
 
-    <p className="text-[#f7e7ef] text-xl md:text-3xl font-semibold leading-relaxed">
-      Lycée Briacé, Internat fille,
-      <br />
-      Le Landreau 44430
-    </p>
+      </a>
+
+    </div>
 
   </div>
 
-  {/* BUTTON */}
-
-  <a
-    href="https://maps.app.goo.gl/pWKbdsW7vnGzegLG8"
-    target="_blank"
-  >
-
-    <button className="bg-[#a9ead7] hover:bg-[#c1f5e6] transition duration-300 text-black text-2xl md:text-3xl font-bold px-10 py-5 rounded-full shadow-xl w-full md:w-auto">
-
-      {t.routeButton}
-
-    </button>
-
-  </a>
-
-</div>
-      </section>
+</section>
 
       {/* EVENING TIMINGS */}
       <section className="max-w-6xl mx-auto px-6 py-14 md:py-20">
@@ -406,6 +386,7 @@ export default function Home() {
         </div>
 
       </section>
+
 
       {/* RSVP SECTION */}
 
