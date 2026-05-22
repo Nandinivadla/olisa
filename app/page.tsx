@@ -26,7 +26,7 @@ const [playing, setPlaying] = useState(false);
         "To help us keep these precious moments forever, please use this website to upload your photos, share your memories and leave us a heartfelt message.",
 
       family:
-        "Our greatest blessing in life is the beautiful family we built together with Auriane Clochard • Leïla Clochard • Nathanaël Clochard.",
+        "Our greatest blessing in life is the beautiful family we built together with Auriane • Leïla  • Nathanaël.",
 
       parking: "Parking Available",
 
