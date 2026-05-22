@@ -160,7 +160,7 @@ const [playing, setPlaying] = useState(false);
         : (lang === "fr" ? "Jouer La Musique ♡" : "Play Music ♡")}
     </button>
 
-    <audio id="loveSong">
+    <audio id="loveSong" controls={false}>
   <source src="/music.mp3" type="audio/mpeg" />
 </audio>
 
