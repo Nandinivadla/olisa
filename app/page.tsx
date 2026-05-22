@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import "@uploadcare/react-uploader/core.css";
 
 export default function Home() {
+
   const [lang, setLang] = useState("en");
 
   const text = {
@@ -40,8 +43,6 @@ export default function Home() {
 
       memoriesText:
         "Upload your favorite memories and photos with us.",
-
-      upload: "Choose Photos",
 
       thank:
         "Thank you for celebrating love, family and beautiful memories with us.",
@@ -82,8 +83,6 @@ export default function Home() {
       memoriesText:
         "Ajoutez vos photos et souvenirs préférés avec nous.",
 
-      upload: "Choisir Des Photos",
-
       thank:
         "Merci de célébrer l’amour, la famille et ces beaux souvenirs avec nous.",
     },
@@ -95,6 +94,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#1b0808] text-[#fff4ef] overflow-hidden">
 
       {/* HEADER */}
+
       <div className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-white/10">
 
         <h1 className="text-3xl md:text-6xl font-serif">
@@ -118,9 +118,11 @@ export default function Home() {
           </button>
 
         </div>
+
       </div>
 
       {/* HERO */}
+
       <section className="text-center py-16 md:py-24 px-6">
 
         <h2 className="text-5xl md:text-8xl font-serif text-[#f7d9d9]">
@@ -134,6 +136,7 @@ export default function Home() {
       </section>
 
       {/* PHOTOS */}
+
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-14">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
@@ -159,6 +162,7 @@ export default function Home() {
       </section>
 
       {/* WELCOME */}
+
       <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-8 md:p-10 text-center">
 
         <p className="text-xl md:text-2xl leading-[2]">
@@ -176,6 +180,7 @@ export default function Home() {
       </section>
 
       {/* FAMILY */}
+
       <section className="max-w-6xl mx-auto mt-16 bg-white/10 rounded-[40px] p-10 text-center">
 
         <p className="italic text-2xl md:text-5xl leading-[2]">
@@ -185,11 +190,13 @@ export default function Home() {
       </section>
 
       {/* PARKING + ROUTE */}
+
       <section className="max-w-6xl mx-auto px-6 py-20">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           {/* PARKING */}
+
           <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
             <h3 className="text-[#f3cfe0] text-4xl md:text-6xl font-serif mb-8">
@@ -212,6 +219,7 @@ export default function Home() {
           </div>
 
           {/* ROUTE */}
+
           <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
 
             <h3 className="text-[#f3cfe0] text-4xl md:text-6xl font-serif mb-8">
@@ -251,7 +259,102 @@ export default function Home() {
 
       </section>
 
+      {/* EVENING TIMINGS */}
+
+      <section className="max-w-6xl mx-auto px-6 py-14 md:py-20">
+
+        <h2 className="text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
+          {lang === "fr" ? "Programme de la Soirée" : "Evening Celebration"}
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* WELCOME */}
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Accueil" : "Welcome"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              16:30
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Accueil des invités et moments chaleureux."
+                : "Guest arrival, welcome drinks and warm moments together."}
+            </p>
+
+          </div>
+
+          {/* CEREMONY */}
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Cérémonie" : "Ceremony"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              19:30
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Un moment rempli d’amour et d’émotions."
+                : "A beautiful emotional celebration filled with love."}
+            </p>
+
+          </div>
+
+          {/* DINNER */}
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Dîner" : "Dinner"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              21:00
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Un délicieux dîner accompagné de musique."
+                : "A lovely dinner evening with music and laughter."}
+            </p>
+
+          </div>
+
+          {/* DANCE */}
+
+          <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
+
+            <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
+              {lang === "fr" ? "Danse" : "Dance"}
+            </h3>
+
+            <p className="text-2xl mb-3 font-semibold">
+              22:00
+            </p>
+
+            <p className="text-lg leading-relaxed">
+              {lang === "fr"
+                ? "Danse, musique et souvenirs inoubliables."
+                : "Celebrate together with music, dancing and unforgettable memories."}
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* RSVP */}
+
       <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10 backdrop-blur-md border border-white/10">
 
         <h2 className="text-center text-5xl md:text-6xl font-serif mb-6 text-[#fff4ef]">
@@ -309,36 +412,32 @@ export default function Home() {
 
       {/* MEMORIES */}
 
-<section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
+      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
 
-  <h2 className="text-5xl md:text-6xl font-serif">
-    {t.memories}
-  </h2>
+        <h2 className="text-5xl md:text-6xl font-serif">
+          {t.memories}
+        </h2>
 
-  <p className="mt-8 text-xl md:text-2xl leading-[1.8]">
-    {t.memoriesText}
-  </p>
+        <p className="mt-8 text-xl md:text-2xl leading-[1.8]">
+          {t.memoriesText}
+        </p>
 
-  <div className="mt-10">
+        <div className="mt-10 flex justify-center">
 
-    <a
-      href="https://uploadcare.com"
-      target="_blank"
-    >
+          <div className="bg-white rounded-[30px] p-6">
 
-      <button className="bg-pink-200 hover:bg-pink-300 transition duration-300 text-black px-10 py-5 rounded-full text-xl md:text-2xl font-bold shadow-2xl">
+            <FileUploaderRegular
+              pubkey="c096cebd110383ca5427"
+            />
 
-        {t.upload}
+          </div>
 
-      </button>
+        </div>
 
-    </a>
-
-  </div>
-
-</section>
+      </section>
 
       {/* THANK YOU */}
+
       <section className="text-center py-24 px-6">
 
         <p className="text-xl md:text-5xl italic max-w-5xl mx-auto leading-[2]">
