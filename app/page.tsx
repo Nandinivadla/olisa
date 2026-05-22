@@ -6,7 +6,8 @@ import "@uploadcare/react-uploader/core.css";
 
 export default function Home() {
 
-  const [lang, setLang] = useState("en");
+ const [lang, setLang] = useState("en");
+const [playing, setPlaying] = useState(false);
 
   const text = {
     en: {
@@ -134,7 +135,41 @@ export default function Home() {
         </p>
 
       </section>
+{/* MUSIC PLAYER */}
 
+<section className="flex justify-center pt-10">
+
+  <div className="flex flex-col items-center gap-5">
+
+    <button
+      onClick={() => {
+        const audio = document.getElementById("loveSong") as HTMLAudioElement;
+
+        if (playing) {
+          audio.pause();
+        } else {
+          audio.play();
+        }
+
+        setPlaying(!playing);
+      }}
+      className="bg-[#f4b6c2] hover:bg-[#f7cad3] transition text-black px-8 py-4 rounded-full text-xl md:text-2xl font-bold shadow-2xl"
+    >
+      {playing
+        ? (lang === "fr" ? "Pause Musique ♡" : "Pause Music ♡")
+        : (lang === "fr" ? "Jouer La Musique ♡" : "Play Music ♡")}
+    </button>
+
+    <audio id="loveSong">
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e1c4d2.mp3?filename=romantic-piano-11465.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+  </div>
+
+</section>
       {/* PHOTOS */}
 
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-14">
