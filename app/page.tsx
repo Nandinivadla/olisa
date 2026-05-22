@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import { FileUploaderRegular } from "@uploadcare/react-uploader/next";
 import "@uploadcare/react-uploader/core.css";
 
 export default function Home() {
@@ -427,9 +427,10 @@ export default function Home() {
           <div className="bg-white rounded-[30px] p-6">
 
             <FileUploaderRegular
-              pubkey="c096cebd110383ca5427"
-            />
-
+  pubkey="c096cebd110383ca5427"
+  sourceList="local, camera, facebook, gdrive"
+  classNameUploader="uc-light"
+/>
           </div>
 
         </div>
