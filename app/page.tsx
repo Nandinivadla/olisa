@@ -32,7 +32,7 @@ export default function Home() {
       parkingText:
         "Free parking spaces are available for all guests near the venue.",
 
-      route: "Ceremony Route",
+      route: "Itinerary",
 
       routeText:
         "Navigate directly to the anniversary celebration venue.",
@@ -105,14 +105,14 @@ export default function Home() {
 
           <button
             onClick={() => setLang("en")}
-            className="bg-[#f4df7d] text-black px-5 py-2 rounded-full font-bold"
+            className="bg-[#6f8f72] hover:bg-[#7da381] transition text-white px-5 py-2 rounded-full font-bold"
           >
             EN
           </button>
 
           <button
             onClick={() => setLang("fr")}
-            className="bg-[#f4df7d] text-black px-5 py-2 rounded-full font-bold"
+            className="bg-[#6f8f72] hover:bg-[#7da381] transition text-white px-5 py-2 rounded-full font-bold"
           >
             FR
           </button>
@@ -269,8 +269,6 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-          {/* WELCOME */}
-
           <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
             <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
@@ -281,35 +279,19 @@ export default function Home() {
               16:30
             </p>
 
-            <p className="text-lg leading-relaxed">
-              {lang === "fr"
-                ? "Accueil des invités et moments chaleureux."
-                : "Guest arrival, welcome drinks and warm moments together."}
-            </p>
-
           </div>
-
-          {/* CEREMONY */}
 
           <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
             <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
-              {lang === "fr" ? "Apéritif" : "Apéritif"}
+              Apéritif
             </h3>
 
             <p className="text-2xl mb-3 font-semibold">
               19:30
             </p>
 
-            <p className="text-lg leading-relaxed">
-              {lang === "fr"
-                ? "Un moment rempli d’amour et d’émotions."
-                : "A beautiful emotional celebration filled with love."}
-            </p>
-
           </div>
-
-          {/* DINNER */}
 
           <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
@@ -321,15 +303,7 @@ export default function Home() {
               21:00
             </p>
 
-            <p className="text-lg leading-relaxed">
-              {lang === "fr"
-                ? "Un délicieux dîner accompagné de musique."
-                : "A lovely dinner evening with music and laughter."}
-            </p>
-
           </div>
-
-          {/* DANCE */}
 
           <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
@@ -339,12 +313,6 @@ export default function Home() {
 
             <p className="text-2xl mb-3 font-semibold">
               22:00
-            </p>
-
-            <p className="text-lg leading-relaxed">
-              {lang === "fr"
-                ? "Danse, musique et souvenirs inoubliables."
-                : "Celebrate together with music, dancing and unforgettable memories."}
             </p>
 
           </div>
@@ -362,10 +330,10 @@ export default function Home() {
         </h2>
 
         <p className="text-center text-lg md:text-2xl italic mb-10 text-[#f6d6e6]">
-  {lang === "fr"
-    ? "Laissez-nous un message rempli d’amour et de beaux souvenirs ✨"
-    : "Leave us a message filled with love and beautiful memories ✨"}
-</p>
+          {lang === "fr"
+            ? "Laissez-nous un message rempli d’amour et de beaux souvenirs ✨"
+            : "Leave us a message filled with love and beautiful memories ✨"}
+        </p>
 
         <form
           action="https://formsubmit.co/clochardolisa@gmail.com"
@@ -397,10 +365,10 @@ export default function Home() {
             name="message"
             rows={6}
             placeholder={
-  lang === "fr"
-    ? "Écrivez un beau message rempli d’amour..."
-    : "Write a sweet message filled with love..."
-}
+              lang === "fr"
+                ? "Écrivez un beau message rempli d’amour..."
+                : "Write a sweet message filled with love..."
+            }
             required
             className="w-full p-5 rounded-[25px] bg-[#ffffff10] border border-white/10 text-xl outline-none"
           />
@@ -433,10 +401,11 @@ export default function Home() {
           <div className="bg-white rounded-[30px] p-6">
 
             <FileUploaderRegular
-  pubkey="c096cebd110383ca5427"
-  sourceList="local, camera, facebook, gdrive"
-  classNameUploader="uc-light"
-/>
+              pubkey="c096cebd110383ca5427"
+              sourceList="local, camera, facebook, gdrive"
+              classNameUploader="uc-light"
+            />
+
           </div>
 
         </div>
