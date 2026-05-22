@@ -294,7 +294,7 @@ export default function Home() {
           <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
             <h3 className="text-3xl font-serif text-[#f6d6e6] mb-4">
-              {lang === "fr" ? "Cérémonie" : "Ceremony"}
+              {lang === "fr" ? "Apéritif" : "Apéritif"}
             </h3>
 
             <p className="text-2xl mb-3 font-semibold">
@@ -362,8 +362,10 @@ export default function Home() {
         </h2>
 
         <p className="text-center text-lg md:text-2xl italic mb-10 text-[#f6d6e6]">
-          Leave us a message filled with love and beautiful memories ✨
-        </p>
+  {lang === "fr"
+    ? "Laissez-nous un message rempli d’amour et de beaux souvenirs ✨"
+    : "Leave us a message filled with love and beautiful memories ✨"}
+</p>
 
         <form
           action="https://formsubmit.co/clochardolisa@gmail.com"
