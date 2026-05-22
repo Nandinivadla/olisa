@@ -255,58 +255,7 @@ export default function Home() {
       </div>
 
     </div>
-
-    {/* MAIN COURSE */}
-    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
-
-      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
-        {lang === "fr" ? "Plat Principal" : "Main Course"}
-      </h3>
-
-      <div className="space-y-4 text-xl">
-        <p>• ----------</p>
-        <p>• ----------</p>
-        <p>• ----------</p>
-      </div>
-
-    </div>
-
-    {/* DESSERTS */}
-    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
-
-      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
-        {lang === "fr" ? "Desserts" : "Desserts"}
-      </h3>
-
-      <div className="space-y-4 text-xl">
-        <p>• ----------</p>
-        <p>• ----------</p>
-        <p>• ----------</p>
-      </div>
-
-    </div>
-
-    {/* DRINKS */}
-    <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
-
-      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
-        {lang === "fr" ? "Boissons" : "Drinks"}
-      </h3>
-
-      <div className="space-y-4 text-xl">
-        <p>• ----------</p>
-        <p>• ----------</p>
-        <p>• ----------</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-      {/* 4 BOXES */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-4 md:px-6">
-
+  
        {/* PARKING */}
 
 <div className="bg-[#4b3b3b]/90 rounded-[45px] p-8 md:p-14 shadow-2xl border border-white/10">
@@ -453,23 +402,6 @@ export default function Home() {
             </p>
 
           </div>
-
-        </div>
-
-      </section>
-
-      {/* ADDRESS */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-
-        <div className="bg-white/10 rounded-[35px] p-10">
-
-          <h3 className="text-5xl font-serif text-pink-200">
-            {t.address}
-          </h3>
-
-          <p className="mt-6 text-2xl leading-[1.8]">
-            {t.addressText}
-          </p>
 
         </div>
 
