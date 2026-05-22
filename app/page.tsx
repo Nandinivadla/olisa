@@ -211,9 +211,9 @@ export default function Home() {
               href="https://maps.app.goo.gl/EGXTYeDpkHr17BXNA"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-[#a8f0dc] text-xl md:text-2xl underline underline-offset-4 hover:text-white transition"
+              className="inline-block mt-6 text-[#f4b6c2] text-xl md:text-2xl underline underline-offset-4 hover:text-white transition"
             >
-              View Parking Location
+              {lang === "fr" ? "Voir Le Parking" : "View Parking Location"}
             </a>
 
           </div>
@@ -245,7 +245,7 @@ export default function Home() {
               target="_blank"
             >
 
-              <button className="bg-[#a9ead7] hover:bg-[#c1f5e6] transition duration-300 text-black text-xl md:text-2xl font-bold px-10 py-5 rounded-full shadow-xl w-full md:w-auto">
+              <button className="bg-[#f4b6c2] hover:bg-[#f7cad3] transition duration-300 text-black text-xl md:text-2xl font-bold px-10 py-5 rounded-full shadow-xl w-full md:w-auto">
 
                 {t.routeButton}
 
@@ -380,7 +380,7 @@ export default function Home() {
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder={lang === "fr" ? "Votre Nom" : "Your Name"}
             required
             className="w-full p-5 rounded-[25px] bg-[#ffffff10] border border-white/10 text-xl outline-none"
           />
@@ -388,7 +388,7 @@ export default function Home() {
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder={lang === "fr" ? "Votre Email" : "Your Email"}
             required
             className="w-full p-5 rounded-[25px] bg-[#ffffff10] border border-white/10 text-xl outline-none"
           />
@@ -396,16 +396,20 @@ export default function Home() {
           <textarea
             name="message"
             rows={6}
-            placeholder="Write a sweet message filled with love..."
+            placeholder={
+  lang === "fr"
+    ? "Écrivez un beau message rempli d’amour..."
+    : "Write a sweet message filled with love..."
+}
             required
             className="w-full p-5 rounded-[25px] bg-[#ffffff10] border border-white/10 text-xl outline-none"
           />
 
           <button
             type="submit"
-            className="w-full bg-[#f4df7d] hover:bg-[#f8e79d] transition duration-300 text-black text-2xl md:text-3xl font-bold py-5 rounded-full shadow-2xl"
+            className="w-full bg-[#6f8f72] hover:bg-[#7da381] transition duration-300 text-black text-2xl md:text-3xl font-bold py-5 rounded-full shadow-2xl"
           >
-            Send RSVP 💌
+            {lang === "fr" ? "Envoyer 💌" : "Send RSVP 💌"}
           </button>
 
         </form>
