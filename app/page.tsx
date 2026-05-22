@@ -168,13 +168,13 @@ export default function Home() {
       </div>
 
       {/* HERO */}
-      <section className="text-center py-24 px-6">
+      <section className="text-center py-16 md:py-24  px-6">
 
-        <h2 className="text-6xl md:text-8xl font-serif text-[#f7d9d9]">
+        <h2 className="text-4xl md:text-8xl font-serif text-[#f7d9d9]">
           {t.title}
         </h2>
 
-        <p className="italic text-2xl md:text-4xl mt-10 max-w-5xl mx-auto">
+        <p className="italic text-lg md:text-4xl mt-10 max-w-5xl mx-auto">
           “{t.quote}”
         </p>
 
@@ -182,26 +182,22 @@ export default function Home() {
 
      {/* PHOTOS */}
 
-<section className="max-w-7xl mx-auto px-6 py-20">
+<section className="max-w-7xl mx-auto px-4 md:px-6 py-14">
 
-  <div className="grid md:grid-cols-2 gap-10 items-center">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
 
-    {/* PHOTO 1 */}
-
-    <div className="overflow-hidden rounded-[40px] shadow-2xl h-[650px]">
+    <div className="overflow-hidden rounded-[30px] shadow-2xl h-[420px] md:h-[650px]">
       <img
         src="/photo1.jpeg"
-        alt="Olivier and Isabelle"
+        alt=""
         className="w-full h-full object-cover"
       />
     </div>
 
-    {/* PHOTO 3 */}
-
-    <div className="overflow-hidden rounded-[40px] shadow-2xl h-[650px]">
+    <div className="overflow-hidden rounded-[30px] shadow-2xl h-[420px] md:h-[650px]">
       <img
         src="/photo3.jpeg"
-        alt="Olivier and Isabelle"
+        alt=""
         className="w-full h-full object-cover"
       />
     </div>
@@ -211,7 +207,7 @@ export default function Home() {
 </section>
 
       {/* WELCOME */}
-      <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px] p-10 text-center">
+      <section className="max-w-6xl mx-auto mt-20 bg-white/10 rounded-[40px]p-6 md:p-10 p-10 text-center">
 
         <p className="text-2xl leading-[2]">
           {t.welcome1}
@@ -239,7 +235,7 @@ export default function Home() {
 
 <section className="max-w-6xl mx-auto px-6 py-20">
 
-  <h2 className="text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
+  <h2 className="text-5xltext-3xl md:text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
     {lang === "fr" ? "Menu De La Soirée" : "Evening Menu"}
   </h2>
 
@@ -248,7 +244,7 @@ export default function Home() {
     {/* STARTERS */}
     <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
-      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
         {lang === "fr" ? "Entrées" : "Starters"}
       </h3>
 
@@ -263,7 +259,7 @@ export default function Home() {
     {/* MAIN COURSE */}
     <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
-      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
         {lang === "fr" ? "Plat Principal" : "Main Course"}
       </h3>
 
@@ -278,7 +274,7 @@ export default function Home() {
     {/* DESSERTS */}
     <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
-      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
         {lang === "fr" ? "Desserts" : "Desserts"}
       </h3>
 
@@ -293,7 +289,7 @@ export default function Home() {
     {/* DRINKS */}
     <div className="bg-[#4a3a3a]/70 backdrop-blur-md rounded-[35px] p-8 border border-[#ffffff20] shadow-2xl">
 
-      <h3 className="text-3xl font-serif text-[#f6d6e6] mb-6">
+      <h3 className="text-xl md:text-3xl font-serif text-[#f6d6e6] mb-6">
         {lang === "fr" ? "Boissons" : "Drinks"}
       </h3>
 
@@ -309,7 +305,7 @@ export default function Home() {
 
 </section>
       {/* 4 BOXES */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-4 md:px-6">
 
        {/* PARKING */}
 
@@ -378,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* EVENING TIMINGS */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="max-w-6xl mx-auto px-6 py-14 md:py-20">
 
         <h2 className="text-5xl md:text-7xl text-center mb-14 text-[#f6d6e6] font-serif">
           {lang === "fr" ? "Programme de la Soirée" : "Evening Celebration"}
@@ -487,7 +483,7 @@ export default function Home() {
     RSVP 💌
   </h2>
 
-  <p className="text-center text-2xl italic mb-10 text-[#f6d6e6]">
+  <p className="text-center text-lg md:text-2xl italic mb-10 text-[#f6d6e6]">
     {lang === "fr"
       ? "Laissez-nous un message rempli d’amour et de beaux souvenirs ✨"
       : "Leave us a message filled with love and beautiful memories ✨"}
@@ -530,7 +526,7 @@ export default function Home() {
           : "Your Name"
       }
       required
-      className="w-full p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
+      className="w-full md:w-auto p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
     />
 
     {/* EMAIL */}
@@ -544,7 +540,7 @@ export default function Home() {
           : "Your Email"
       }
       required
-      className="w-full p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
+      className="w-full md:w-auto p-6 rounded-[25px] bg-[#ffffff10] border border-white/10 text-2xl outline-none placeholder:text-[#d8c4c4]"
     />
 
     {/* MESSAGE */}
@@ -606,12 +602,12 @@ export default function Home() {
       {/* THANK YOU */}
       <section className="text-center py-28 px-6">
 
-        <p className="text-3xl md:text-5xl italic max-w-5xl mx-auto leading-[2]">
+        <p className="text-xl md:text-5xl italic max-w-5xl mx-auto leading-[2]">
           {t.thank}
         </p>
 
       </section>
-<p className="text-center text-[#9f8b92] text-sm py-6">
+<p className="text-center text-[#9f8b92] text-xs md:text-sm py-6">
   © nandukrish ✨
 </p>
     </main>
