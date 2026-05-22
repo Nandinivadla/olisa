@@ -308,31 +308,35 @@ export default function Home() {
       </section>
 
       {/* MEMORIES */}
-      <section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
 
-        <h2 className="text-5xl md:text-6xl font-serif">
-          {t.memories}
-        </h2>
+<section className="max-w-6xl mx-auto mt-24 bg-white/10 rounded-[40px] p-10 text-center">
 
-        <p className="mt-8 text-xl md:text-2xl leading-[1.8]">
-          {t.memoriesText}
-        </p>
+  <h2 className="text-5xl md:text-6xl font-serif">
+    {t.memories}
+  </h2>
 
-        <input
-          type="file"
-          multiple
-          className="mt-10 text-xl"
-        />
+  <p className="mt-8 text-xl md:text-2xl leading-[1.8]">
+    {t.memoriesText}
+  </p>
 
-        <div>
+  <div className="mt-10">
 
-          <button className="mt-8 bg-pink-200 text-black px-10 py-5 rounded-full text-xl md:text-2xl font-bold">
-            {t.upload}
-          </button>
+    <a
+      href="https://uploadcare.com"
+      target="_blank"
+    >
 
-        </div>
+      <button className="bg-pink-200 hover:bg-pink-300 transition duration-300 text-black px-10 py-5 rounded-full text-xl md:text-2xl font-bold shadow-2xl">
 
-      </section>
+        {t.upload}
+
+      </button>
+
+    </a>
+
+  </div>
+
+</section>
 
       {/* THANK YOU */}
       <section className="text-center py-24 px-6">
