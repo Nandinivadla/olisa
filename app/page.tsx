@@ -161,11 +161,8 @@ const [playing, setPlaying] = useState(false);
     </button>
 
     <audio id="loveSong">
-      <source
-        src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e1c4d2.mp3?filename=romantic-piano-11465.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
+  <source src="/music.mp3" type="audio/mpeg" />
+</audio>
 
   </div>
 
