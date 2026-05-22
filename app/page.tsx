@@ -148,7 +148,8 @@ const [playing, setPlaying] = useState(false);
         if (playing) {
           audio.pause();
         } else {
-          audio.play();
+         audio.currentTime = 309;
+audio.play();
         }
 
         setPlaying(!playing);
